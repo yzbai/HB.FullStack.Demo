@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+    x:Class="Demo.UI.ImageTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
+    xmlns:baseControls="clr-namespace:HB.FullStack.Mobile.Controls;assembly=HB.FullStack.Mobile"
+    xmlns:baseExtensions="clr-namespace:HB.FullStack.Mobile.Extensions;assembly=HB.FullStack.Mobile">
+
+    <base:BaseContentPage.Resources>
+        <baseExtensions:AuthImageSourceConverter x:Key="AuthImageSourceConverter" />
+    </base:BaseContentPage.Resources>
+
+    <base:BaseContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="xsdf dddxdxdxs to  Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" />
+
+
+            <Image Aspect="AspectFill">
+                <Image.Source>
+                    <baseControls:AuthUriImageSource Uri="http://brlite.com/qrcode.jpg"/>
+                </Image.Source>
+            </Image>
+
+            <Image Aspect="AspectFill" Source="{Binding ImageUrl, Converter={StaticResource AuthImageSourceConverter}}"/>
+
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>
