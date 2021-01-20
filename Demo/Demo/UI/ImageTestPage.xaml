@@ -18,14 +18,19 @@
                 Text="xsdf dddxdxdxs to  Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" />
 
-
-            <Image Aspect="AspectFill">
+            <Image>
                 <Image.Source>
-                    <baseControls:AuthUriImageSource Uri="http://brlite.com/qrcode.jpg"/>
+                    <baseControls:AuthUriImageSource Uri="https://www.baidu.com/img/flexible/logo/pc/result.png" />
                 </Image.Source>
             </Image>
 
-            <Image Aspect="AspectFill" Source="{Binding ImageUrl, Converter={StaticResource AuthImageSourceConverter}}"/>
+            <Image Aspect="AspectFill">
+                <Image.Source>
+                    <baseControls:AuthUriImageSource Uri="http://brlite.com/qrcode.jpg" />
+                </Image.Source>
+            </Image>
+
+            <Image Aspect="AspectFill" Source="{Binding ImageUrl, Converter={StaticResource AuthImageSourceConverter}}" />
 
         </StackLayout>
     </base:BaseContentPage.Content>
