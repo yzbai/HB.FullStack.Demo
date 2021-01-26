@@ -15,10 +15,9 @@ namespace Demo
 
     public partial class App : BaseApplication
     {
-        public override string Environment => "Debug";
-
-        public App(IServiceCollection services) : base(services)
+        public App(IServiceCollection services)
         {
+            InitializeServices(services);
             InitializeComponent();
 
             MainPage = new AppShell();
@@ -61,10 +60,6 @@ namespace Demo
 
             //Database
             AddInitTask(DependencyService.Resolve<IDatabase>().InitializeAsync());
-        }
-
-        protected override void OnConnectivityChanged(object? sender, ConnectivityChangedEventArgs e)
-        {
         }
 
         public override void OnOfflineDataUsed()

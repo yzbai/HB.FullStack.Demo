@@ -150,6 +150,8 @@
     <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile.iOS\HB.FullStack.Mobile.iOS.csproj">
       <Project>{9e73e256-cd6b-44d4-b076-cbd5586bbb87}</Project>
       <Name>HB.FullStack.Mobile.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
     <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile\HB.FullStack.Mobile.csproj">
       <Project>{49cff4b1-703f-48e9-9d74-08f3c0a3e3e2}</Project>

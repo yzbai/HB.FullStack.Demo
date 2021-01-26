@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage x:Class="Demo.UI.SkiaTouchPage"
+                      xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
+                      xmlns:baseControls="clr-namespace:HB.FullStack.Mobile.Controls;assembly=HB.FullStack.Mobile"
+                      xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+                      xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile"
+                      xmlns:clock="clr-namespace:HB.FullStack.Mobile.Controls.Clock;assembly=HB.FullStack.Mobile">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand">
+            <!--<Image Aspect="AspectFit">
+                <Image.Source>
+                    <baseControls:AuthUriImageSource Uri="http://brlite.com/qrcode.jpg" />
+                </Image.Source>
+            </Image>-->
+
+            <clock:PlainClock x:Name="Clock"
+                              Description="{Binding Description}"
+                              BackgroundColor="Wheat"
+                              TimeBlockDrawInfos="{Binding TimeBlockDrawInfos}"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand" />
+
+
+
+            <clock:ClockTimePicker x:Name="ClockPicker"
+                                   Description="{Binding Description}"
+                                   InitialHour="6"
+                                   InitialMinute="15"
+                                   IsDragable="True"
+                                   CanHourHandAntiClockwise="True"
+                                   CanMinuteHandAntiClockwise="True"
+                                   BackgroundColor="LightGray"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>
