@@ -28,7 +28,7 @@ namespace Demo.Cropper
                 RowDefinitions = Rows.Define(GridLength.Star),
                 ColumnDefinitions = Columns.Define(GridLength.Star),
                 Children = {
-                    new SKFigureCanvasView { IsAnimationMode = false }
+                    new SKFigureCanvasView { EnableTimeTick = false }
                         .Bind(SKFigureCanvasView.FiguresProperty, nameof(Figures))
                         .Row(0).Column(0)
                         .Assign(out _canvas)
@@ -45,7 +45,7 @@ namespace Demo.Cropper
 
         }
 
-        protected override void RemoveFigures()
+        protected override void DisposeFigures()
         {
 
         }
@@ -55,19 +55,30 @@ namespace Demo.Cropper
     {
         SKBitmap _bitmap;
 
-        public override void Paint(SKPaintSurfaceEventArgs e)
-        {
-            
-        }
 
-        public override bool HitTest(SKPoint skPoint, long touchId)
+        public override bool OnHitTest(SKPoint skPoint, long touchId)
         {
-            return base.HitTest(skPoint, touchId);
+            return base.OnHitTest(skPoint, touchId);
         }
 
         public override void ProcessTouchAction(TouchActionEventArgs args)
         {
             base.ProcessTouchAction(args);
+        }
+
+        protected override void OnCaculateOutput()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnDraw(SKImageInfo info, SKCanvas canvas)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnUpdateHitTestPath(SKImageInfo info)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,8 +16,8 @@
 
   <ItemGroup>
 	<PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
-	<PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />  
-	<PackageReference Include="Xamarin.Essentials" Version="1.6.1-preview1" />
+	<PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />  
+	<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>

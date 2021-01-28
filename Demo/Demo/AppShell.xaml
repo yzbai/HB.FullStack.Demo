@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="Demo.AppShell"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ui="clr-namespace:Demo.UI"
-    Title="Demo">
+<Shell x:Class="Demo.AppShell"
+       xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:ui="clr-namespace:Demo.UI"
+       Title="Demo">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -14,7 +13,8 @@
 
     <Shell.Resources>
         <ResourceDictionary>
-            <Style x:Key="BaseStyle" TargetType="Element">
+            <Style x:Key="BaseStyle"
+                   TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
@@ -25,20 +25,22 @@
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarTitleColor" Value="White" />
             </Style>
-            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
-            <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
+            <Style BasedOn="{StaticResource BaseStyle}"
+                   TargetType="TabBar" />
+            <Style BasedOn="{StaticResource BaseStyle}"
+                   TargetType="FlyoutItem" />
 
             <!--
                 Default Styles for all Flyout Items
                 https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
             -->
-            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+            <Style Class="FlyoutItemLabelStyle"
+                   TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
             </Style>
-            <Style
-                ApplyToDerivedTypes="True"
-                Class="FlyoutItemLayoutStyle"
-                TargetType="Layout">
+            <Style ApplyToDerivedTypes="True"
+                   Class="FlyoutItemLayoutStyle"
+                   TargetType="Layout">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
@@ -61,10 +63,9 @@
             <!--
                 Custom Style you can apply to any Flyout Item
             -->
-            <Style
-                ApplyToDerivedTypes="True"
-                Class="MenuItemLayoutStyle"
-                TargetType="Layout">
+            <Style ApplyToDerivedTypes="True"
+                   Class="MenuItemLayoutStyle"
+                   TargetType="Layout">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
@@ -85,15 +86,25 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="SkiaTouch" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate ui:SkiaTouchPage}" Route="SkiaTouchPage" />
+
+    <FlyoutItem Title="Figure"
+                Icon="icon_about.png">
+        <ShellContent ContentTemplate="{DataTemplate ui:FigureTestPage}"
+                      Route="FigureTestPage" />
     </FlyoutItem>
-    
-    <FlyoutItem Title="Image" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate ui:ImageTestPage}" Route="ImageTestPage" />
+    <FlyoutItem Title="SkiaTouch"
+                Icon="icon_about.png">
+        <ShellContent ContentTemplate="{DataTemplate ui:SkiaTouchPage}"
+                      Route="SkiaTouchPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Image"
+                Icon="icon_about.png">
+        <ShellContent ContentTemplate="{DataTemplate ui:ImageTestPage}"
+                      Route="ImageTestPage" />
     </FlyoutItem>
 
 
     <!--  When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    
+
 </Shell>

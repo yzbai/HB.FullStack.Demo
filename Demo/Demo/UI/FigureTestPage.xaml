@@ -3,11 +3,16 @@
                       xmlns="http://xamarin.com/schemas/2014/forms"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
-                      xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile">
+                      xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile"
+                      xmlns:clock="clr-namespace:HB.FullStack.Mobile.Controls.Clock;assembly=HB.FullStack.Mobile">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand">
-            <figure:SKFigureCanvasView x:Name="Canvas" IsAnimationMode="False" Figures="{Binding Figures}" />
+            <figure:SKFigureCanvasView x:Name="Canvas"
+                                       Figures="{Binding Figures}"
+                                       EnableTimeTick="False"
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>
