@@ -2,6 +2,9 @@
 using HB.FullStack.Mobile.Controls.Clock;
 using HB.FullStack.Mobile.Skia;
 
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,20 +20,42 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FigureTestPage : BaseContentPage
     {
-        public ObservableRangeCollection<SKFigure> Figures { get; } = new ObservableRangeCollection<SKFigure>();
-
         public FigureTestPage()
         {
             InitializeComponent();
             BindingContext = this;
 
-            HourHandFigure hourHandFigure = new HourHandFigure(0.5f, 6) {  PivotRatioPoint = new SKRatioPoint(0.5f, 0.5f)};
+            HourHandFigure hourHandFigure = new HourHandFigure(0.5f, 6);
 
-            MinuteHandFigure minuteHandFigure = new MinuteHandFigure(0.8f, 19, hourHandFigure) { PivotRatioPoint = new SKRatioPoint(0.5f, 0.5f)};
+            MinuteHandFigure minuteHandFigure = new MinuteHandFigure(0.8f, 19, hourHandFigure);
 
-            Figures.AddRange(new SKFigure[] { hourHandFigure, minuteHandFigure});
+            TimeBlockFigure tb1 = new TimeBlockFigure(
+                0.3f,
+                0.5f,
+                new TimeBlockDrawInfo
+                {
+                    Color = Color.Red.ToSKColor(),
+                    StartTime = new Time24Hour(6, 30),
+                    EndTime = new Time24Hour(9, 45)
+                });
+
+            TimeBlockFigure tb2 = new TimeBlockFigure(
+                0.3f,
+                0.5f,
+                new TimeBlockDrawInfo
+                {
+                    Color = Color.Blue.ToSKColor(),
+                    StartTime = new Time24Hour(10, 30),
+                    EndTime = new Time24Hour(13, 45)
+                });
+
+            TimeBlockFigureGroup tbGroup = new TimeBlockFigureGroup();
+            tbGroup.AddFigures(tb1, tb2);
+
+            Figures.AddRange(new SKFigure[] { hourHandFigure, minuteHandFigure, tbGroup });
         }
 
+        public ObservableRangeCollection<SKFigure> Figures { get; } = new ObservableRangeCollection<SKFigure>();
         protected override IList<IBaseContentView?>? GetAllCustomerControls()
         {
             return new List<IBaseContentView?> { Canvas };

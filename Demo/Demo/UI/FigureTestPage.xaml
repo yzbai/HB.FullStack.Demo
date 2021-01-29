@@ -11,6 +11,7 @@
             <figure:SKFigureCanvasView x:Name="Canvas"
                                        Figures="{Binding Figures}"
                                        EnableTimeTick="False"
+                                       EnableFailedToHitEvent="True"
                                        VerticalOptions="FillAndExpand"
                                        HorizontalOptions="FillAndExpand" />
         </StackLayout>
