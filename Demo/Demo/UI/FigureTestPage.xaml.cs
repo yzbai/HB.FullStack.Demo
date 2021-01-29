@@ -49,7 +49,7 @@ namespace Demo.UI
                     EndTime = new Time24Hour(13, 45)
                 });
 
-            TimeBlockFigureGroup tbGroup = new TimeBlockFigureGroup();
+            TimeBlockFigureGroup tbGroup = new TimeBlockFigureGroup() { EnableMultipleSelected = true };
             tbGroup.AddFigures(tb1, tb2);
 
             Figures.AddRange(new SKFigure[] { hourHandFigure, minuteHandFigure, tbGroup });
