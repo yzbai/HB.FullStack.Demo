@@ -87,6 +87,12 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
 
+    <FlyoutItem Title="Cropper"
+                Icon="icon_about.png">
+        <ShellContent ContentTemplate="{DataTemplate ui:CropperPage}"
+                      Route="CropperPage" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Figure"
                 Icon="icon_about.png">
         <ShellContent ContentTemplate="{DataTemplate ui:FigureTestPage}"

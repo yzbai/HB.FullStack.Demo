@@ -50,35 +50,4 @@ namespace Demo.Cropper
 
         }
     }
-
-    public class BitmapFigure : SKFigure
-    {
-        SKBitmap _bitmap;
-
-
-        public override bool OnHitTest(SKPoint skPoint, long touchId)
-        {
-            return base.OnHitTest(skPoint, touchId);
-        }
-
-        public override void ProcessTouchAction(TouchActionEventArgs args)
-        {
-            base.ProcessTouchAction(args);
-        }
-
-        protected override void OnCaculateOutput()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void OnDraw(SKImageInfo info, SKCanvas canvas)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void OnUpdateHitTestPath(SKImageInfo info)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
