@@ -3,17 +3,22 @@
                       xmlns="http://xamarin.com/schemas/2014/forms"
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
-                      xmlns:ui="clr-namespace:Demo.Cropper"
                       xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand">
             <figure:SKFigureCanvasView x:Name="FigureCanvas"
-                                       Margin="24"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        EnableTimeTick="False"
+                                       AutoBringToFront="False"
                                        Figures="{Binding Figures}" />
+            <Button Text="旋转" HorizontalOptions="Start" Command="{Binding RotateCommand}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="取消" HorizontalOptions="StartAndExpand" Command="{Binding CancelCommand}"/>
+                <Button Text="重来" HorizontalOptions="CenterAndExpand" Command="{Binding ResetCommand}"/>
+                <Button Text="完成" HorizontalOptions="EndAndExpand" Command="{Binding CropCommand}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>
