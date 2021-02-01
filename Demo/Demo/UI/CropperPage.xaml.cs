@@ -56,11 +56,6 @@ namespace Demo.UI
             ResumeFigures();
         }
 
-        protected override void OnSizeAllocated(double width, double height)
-        {
-            base.OnSizeAllocated(width, height);
-        }
-
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -75,7 +70,7 @@ namespace Demo.UI
                 ManipulationMode = TouchManipulationMode.IsotropicScale
             };
 
-            _cropperFrameFigure = new CropperFrameFigure(0.5f, 0.5f, 0.9f, 0.9f);
+            _cropperFrameFigure = new CropperFrameFigure(0.7f, 0.7f, 0.9f, 0.9f);
 
             Figures.AddRange(new SKFigure[] { _bitmapFigure, _cropperFrameFigure });
 
@@ -168,7 +163,7 @@ namespace Demo.UI
         private SKRect _cropRect;
         private SKRect _outterRect;
 
-        public float Transparency { get; set; } = 0.8f;
+        public float Transparency { get; set; } = 0.2f;
 
         public SKRect CropRect => _cropRect;
 
@@ -193,9 +188,8 @@ namespace Demo.UI
             _outterHeightRatio = outterHeightRatio;
 
             _outterRectPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = SKColors.DimGray.WithAlpha((byte)(0xFF * (1 - Transparency))) };
-            _cropperRectPaint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 2, Color = SKColors.Black };
-            _cornerPaint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 15, Color = SKColors.Black };
-
+            _cropperRectPaint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 5, Color = SKColors.White };
+            _cornerPaint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 15, Color = SKColors.White };
 
             OneFingerDragged += CropperFrameFigure_OneFingerDragged;
         }
@@ -237,7 +231,15 @@ namespace Demo.UI
                 _firstDraw = false;
             }
 
-            canvas.DrawRect(_outterRect, _outterRectPaint);
+
+            //Draw Dim Bg
+            using SKRegion bgRegion = new SKRegion(SKRectI.Round(_outterRect));
+
+            bgRegion.Op(SKRectI.Round(_cropRect), SKRegionOperation.Difference);
+
+            canvas.DrawRegion(bgRegion, _outterRectPaint);
+
+            //Draw CropRect
             canvas.DrawRect(_cropRect, _cropperRectPaint);
 
             //Draw Corner
@@ -316,11 +318,15 @@ namespace Demo.UI
             float xOffset = e.CurrentPoint.X - e.PreviousPoint.X;
             float yOffset = e.CurrentPoint.Y - e.PreviousPoint.Y;
 
-            //if (IsSquare)
-            //{
-            //    xOffset = Math.Max(xOffset, yOffset);
-            //    yOffset = xOffset;
-            //}
+            if (IsSquare)
+            {
+                if (xOffset == 0 || yOffset == 0)
+                {
+                    //TODO: 解决其中一方不移动
+                    //BUG: 会移动成非正方形
+                    return;
+                }
+            }
 
             //不能超出边界
             //不能太小
@@ -336,9 +342,9 @@ namespace Demo.UI
 
                         if (IsSquare)
                         {
-                            float offset = Math.Min(newRight - _cropRect.Right, newBottom - _cropRect.Bottom);
-                            _cropRect.Right = _cropRect.Right + offset;
-                            _cropRect.Bottom = _cropRect.Bottom + offset;
+                            float offset = Math.Min(Math.Abs(newRight - _cropRect.Right), Math.Abs(newBottom - _cropRect.Bottom));
+                            _cropRect.Right = _cropRect.Right + offset * Math.Sign(xOffset);
+                            _cropRect.Bottom = _cropRect.Bottom + offset * Math.Sign(yOffset);
                         }
                         else
                         {
@@ -379,9 +385,9 @@ namespace Demo.UI
 
                         if (IsSquare)
                         {
-                            float offset = Math.Min(newLeft - _cropRect.Left, newTop - _cropRect.Top);
-                            _cropRect.Left = _cropRect.Left + offset;
-                            _cropRect.Top = _cropRect.Top + offset;
+                            float offset = Math.Min(Math.Abs(newLeft - _cropRect.Left), Math.Abs(newTop - _cropRect.Top));
+                            _cropRect.Left = _cropRect.Left + offset * Math.Sign(xOffset);
+                            _cropRect.Top = _cropRect.Top + offset * Math.Sign(yOffset);
                         }
                         else
                         {
@@ -400,9 +406,9 @@ namespace Demo.UI
 
                         if (IsSquare)
                         {
-                            float offset = Math.Min(newRight - _cropRect.Right, newTop - _cropRect.Top);
-                            _cropRect.Right = _cropRect.Right + offset;
-                            _cropRect.Top = _cropRect.Top + offset;
+                            float offset = Math.Min(Math.Abs(newRight - _cropRect.Right), Math.Abs(newTop - _cropRect.Top));
+                            _cropRect.Right = _cropRect.Right + offset * Math.Sign(xOffset);
+                            _cropRect.Top = _cropRect.Top + offset * Math.Sign(yOffset);
                         }
                         else
                         {
