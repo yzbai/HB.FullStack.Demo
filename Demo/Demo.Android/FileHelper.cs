@@ -22,18 +22,14 @@ namespace Demo.Droid
     /// </summary>
     public class FileHelper : IFileHelper
     {
-        //TODO: 确定各个图像的位置和大小
+        //TODO: 图片存储到公共相册中
         public static readonly string AvatarDirectory = System.IO.Path.Combine(FileSystem.AppDataDirectory, "time_avatars");
-        public static readonly int Avatar_Max_Height = 1024;
-        public static readonly int Avatar_Max_Width = 1024;
-
         public static readonly string OthersDirectory = System.IO.Path.Combine(FileSystem.AppDataDirectory, "others");
 
         private readonly object _locker = new object();
 
         public string GetDirectoryPath(UserFileType fileType)
         {
-            //Platform.AppContext.GetExternalMediaDirs
             return fileType switch
             {
                 UserFileType.Avatar => AvatarDirectory,
