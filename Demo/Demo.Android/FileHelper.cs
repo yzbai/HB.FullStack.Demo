@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
+using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
@@ -22,7 +23,7 @@ namespace Demo.Droid
     public class FileHelper : IFileHelper
     {
         //TODO: 确定各个图像的位置和大小
-        public static readonly string AvatarDirectory = System.IO.Path.Combine(Environment.DirectoryPictures, "time_avatars");
+        public static readonly string AvatarDirectory = System.IO.Path.Combine(FileSystem.AppDataDirectory, "time_avatars");
         public static readonly int Avatar_Max_Height = 1024;
         public static readonly int Avatar_Max_Width = 1024;
 
@@ -32,11 +33,33 @@ namespace Demo.Droid
 
         public string GetDirectoryPath(UserFileType fileType)
         {
+            //Platform.AppContext.GetExternalMediaDirs
             return fileType switch
             {
                 UserFileType.Avatar => AvatarDirectory,
                 _ => OthersDirectory
             };
+        }
+
+        public string GetFileSuffix(UserFileType fileType)
+        {
+            return fileType switch
+            {
+                UserFileType.Avatar => ".png",
+                _ => "",
+            };
+        }
+
+        public bool IsFileExisted(string fileName, UserFileType userFileType)
+        {
+            if (!fileName.Contains('.'))
+            {
+                fileName += GetFileSuffix(userFileType);
+            }
+
+            string filePath = System.IO.Path.Combine(GetDirectoryPath(userFileType), fileName);
+
+            return File.Exists(filePath);
         }
 
         public async Task SaveFileAsync(byte[] data, string fileName, UserFileType userFileType)

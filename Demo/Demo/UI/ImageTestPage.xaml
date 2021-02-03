@@ -13,6 +13,7 @@
 
     <base:BaseContentPage.Content>
         <StackLayout>
+            <Image Source="bg_test" BackgroundColor="Blue"/>
             <Label
                 HorizontalOptions="CenterAndExpand"
                 Text="xsdf dddxdxdxs to  Xamarin.Forms!"
