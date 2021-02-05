@@ -23,7 +23,6 @@ namespace Demo
             MainPage = new AppShell();
         }
 
-
         protected override void RegisterServices(IServiceCollection services)
         {
             //System
