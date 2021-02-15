@@ -1,6 +1,6 @@
-﻿using HB.FullStack.Mobile.Base;
-using HB.FullStack.Mobile.Controls.Clock;
-using HB.FullStack.Mobile.Skia;
+﻿using HB.FullStack.XamarinForms.Base;
+using HB.FullStack.XamarinForms.Controls.Clock;
+using HB.FullStack.XamarinForms.Skia;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;

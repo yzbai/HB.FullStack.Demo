@@ -1,5 +1,5 @@
-﻿using HB.FullStack.Mobile.Base;
-using HB.FullStack.Mobile.Controls;
+﻿using HB.FullStack.XamarinForms.Base;
+using HB.FullStack.XamarinForms.Controls;
 
 using System;
 using System.Collections.Generic;

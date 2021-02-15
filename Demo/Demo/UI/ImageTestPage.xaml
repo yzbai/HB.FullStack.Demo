@@ -3,9 +3,9 @@
     x:Class="Demo.UI.ImageTestPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
-    xmlns:baseControls="clr-namespace:HB.FullStack.Mobile.Controls;assembly=HB.FullStack.Mobile"
-    xmlns:baseExtensions="clr-namespace:HB.FullStack.Mobile.Extensions;assembly=HB.FullStack.Mobile">
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms"
+    xmlns:baseControls="clr-namespace:HB.FullStack.XamarinForms.Controls;assembly=HB.FullStack.XamarinForms"
+    xmlns:baseExtensions="clr-namespace:HB.FullStack.XamarinForms.Extensions;assembly=HB.FullStack.XamarinForms">
 
     <base:BaseContentPage.Resources>
         <baseExtensions:AuthImageSourceConverter x:Key="AuthImageSourceConverter" />
@@ -13,7 +13,9 @@
 
     <base:BaseContentPage.Content>
         <StackLayout>
-            <Image Source="bg_test" BackgroundColor="Blue"/>
+            <Image
+                BackgroundColor="Blue"
+                Source="bg_test" />
             <Label
                 HorizontalOptions="CenterAndExpand"
                 Text="xsdf dddxdxdxs to  Xamarin.Forms!"
@@ -31,7 +33,9 @@
                 </Image.Source>
             </Image>
 
-            <Image Aspect="AspectFill" Source="{Binding ImageUrl, Converter={StaticResource AuthImageSourceConverter}}" />
+            <Image
+                Aspect="AspectFill"
+                Source="{Binding ImageUrl, Converter={StaticResource AuthImageSourceConverter}}" />
 
         </StackLayout>
     </base:BaseContentPage.Content>

@@ -1,40 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<base:BaseContentPage x:Class="Demo.UI.SkiaTouchPage"
-                      xmlns="http://xamarin.com/schemas/2014/forms"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                      xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
-                      xmlns:baseControls="clr-namespace:HB.FullStack.Mobile.Controls;assembly=HB.FullStack.Mobile"
-                      xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-                      xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile"
-                      xmlns:clock="clr-namespace:HB.FullStack.Mobile.Controls.Clock;assembly=HB.FullStack.Mobile">
+<base:BaseContentPage
+    x:Class="Demo.UI.SkiaTouchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms"
+    xmlns:baseControls="clr-namespace:HB.FullStack.XamarinForms.Controls;assembly=HB.FullStack.XamarinForms"
+    xmlns:clock="clr-namespace:HB.FullStack.XamarinForms.Controls.Clock;assembly=HB.FullStack.XamarinForms"
+    xmlns:figure="clr-namespace:HB.FullStack.XamarinForms.Skia;assembly=HB.FullStack.XamarinForms"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand">
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
             <!--<Image Aspect="AspectFit">
                 <Image.Source>
                     <baseControls:AuthUriImageSource Uri="http://brlite.com/qrcode.jpg" />
                 </Image.Source>
             </Image>-->
 
-            <clock:PlainClock x:Name="Clock"
-                              Description="{Binding Description}"
-                              BackgroundColor="Wheat"
-                              TimeBlockDrawInfos="{Binding TimeBlockDrawInfos}"
-                              HorizontalOptions="FillAndExpand"
-                              VerticalOptions="FillAndExpand" />
+            <clock:PlainClock
+                x:Name="Clock"
+                BackgroundColor="Wheat"
+                Description="{Binding Description}"
+                HorizontalOptions="FillAndExpand"
+                TimeBlockDrawInfos="{Binding TimeBlockDrawInfos}"
+                VerticalOptions="FillAndExpand" />
 
 
 
-            <clock:ClockTimePicker x:Name="ClockPicker"
-                                   Description="{Binding Description}"
-                                   InitialHour="6"
-                                   InitialMinute="15"
-                                   IsDragable="True"
-                                   CanHourHandAntiClockwise="True"
-                                   CanMinuteHandAntiClockwise="True"
-                                   BackgroundColor="LightGray"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalOptions="FillAndExpand" />
+            <clock:ClockTimePicker
+                x:Name="ClockPicker"
+                BackgroundColor="LightGray"
+                CanHourHandAntiClockwise="True"
+                CanMinuteHandAntiClockwise="True"
+                Description="{Binding Description}"
+                HorizontalOptions="FillAndExpand"
+                InitialHour="6"
+                InitialMinute="15"
+                IsDragable="True"
+                VerticalOptions="FillAndExpand" />
 
         </StackLayout>
     </ContentPage.Content>

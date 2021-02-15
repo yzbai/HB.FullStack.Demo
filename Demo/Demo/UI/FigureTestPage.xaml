@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<base:BaseContentPage x:Class="Demo.UI.FigureTestPage"
-                      xmlns="http://xamarin.com/schemas/2014/forms"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                      xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile"
-                      xmlns:figure="clr-namespace:HB.FullStack.Mobile.Skia;assembly=HB.FullStack.Mobile"
-                      xmlns:clock="clr-namespace:HB.FullStack.Mobile.Controls.Clock;assembly=HB.FullStack.Mobile">
+<base:BaseContentPage
+    x:Class="Demo.UI.FigureTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms"
+    xmlns:clock="clr-namespace:HB.FullStack.XamarinForms.Controls.Clock;assembly=HB.FullStack.XamarinForms"
+    xmlns:figure="clr-namespace:HB.FullStack.XamarinForms.Skia;assembly=HB.FullStack.XamarinForms">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand">
-            <figure:SKFigureCanvasView x:Name="Canvas"
-                                       Figures="{Binding Figures}"
-                                       EnableTimeTick="False"
-                                       VerticalOptions="FillAndExpand"
-                                       HorizontalOptions="FillAndExpand" />
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <figure:SKFigureCanvasView
+                x:Name="Canvas"
+                EnableTimeTick="False"
+                Figures="{Binding Figures}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

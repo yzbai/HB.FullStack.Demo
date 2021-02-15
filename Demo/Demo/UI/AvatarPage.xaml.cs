@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-using HB.FullStack.Mobile.Base;
-using HB.FullStack.Mobile.Controls.Cropper;
-using HB.FullStack.Mobile.Platforms;
+using HB.FullStack.XamarinForms.Base;
+using HB.FullStack.XamarinForms.Controls.Cropper;
+using HB.FullStack.XamarinForms.Platforms;
 
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;

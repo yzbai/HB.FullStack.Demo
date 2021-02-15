@@ -3,7 +3,7 @@
     x:Class="Demo.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile">
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->

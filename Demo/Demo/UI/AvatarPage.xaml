@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<base:BaseContentPage x:Class="Demo.UI.AvatarPage"
-                      xmlns="http://xamarin.com/schemas/2014/forms"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                      xmlns:base="clr-namespace:HB.FullStack.Mobile.Base;assembly=HB.FullStack.Mobile">
+<base:BaseContentPage
+    x:Class="Demo.UI.AvatarPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="xx" />
-            <Image Source="{Binding AvatarSource}"
-                   HeightRequest="150"
-                   WidthRequest="150"
-                   Aspect="AspectFit"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-            <Button Text="头像"
-                    Command="{Binding PickAvatarCommand}" />
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="150"
+                HorizontalOptions="Center"
+                Source="{Binding AvatarSource}"
+                VerticalOptions="Center"
+                WidthRequest="150" />
+            <Button
+                Command="{Binding PickAvatarCommand}"
+                Text="头像" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

@@ -1,7 +1,7 @@
 ﻿
 using HB.FullStack.Database;
-using HB.FullStack.Mobile.Base;
-using HB.FullStack.Mobile.IdBarriers;
+using HB.FullStack.XamarinForms.Base;
+using HB.FullStack.XamarinForms.IdBarriers;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,12 +15,34 @@ namespace Demo
 
     public partial class App : BaseApplication
     {
+        private AppShell? _mainShell;
+
+        private AppShell MainShell
+        {
+            get
+            {
+                if (_mainShell == null)
+                {
+                    _mainShell = new AppShell();
+                }
+
+                return _mainShell;
+            }
+            set { _mainShell = value; }
+        }
+
         public App(IServiceCollection services)
         {
             InitializeServices(services);
             InitializeComponent();
 
-            MainPage = new AppShell();
+            GotoMainPage();
+        }
+
+
+        public override void GotoMainPage()
+        {
+            MainPage = MainShell = new AppShell();
         }
 
         protected override void RegisterServices(IServiceCollection services)
@@ -64,5 +86,7 @@ namespace Demo
         public override void OnOfflineDataUsed()
         {
         }
+
+        
     }
 }

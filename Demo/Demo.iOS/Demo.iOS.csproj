@@ -134,7 +134,7 @@
     <PackageReference Include="System.Numerics.Vectors">
       <Version>4.5.0</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -147,15 +147,9 @@
       <Project>{150f0643-a4f3-4150-9cb6-93c7512bfb1d}</Project>
       <Name>HB.FullStack.Database.ClientExtension</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile.iOS\HB.FullStack.Mobile.iOS.csproj">
-      <Project>{9e73e256-cd6b-44d4-b076-cbd5586bbb87}</Project>
-      <Name>HB.FullStack.Mobile.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile\HB.FullStack.Mobile.csproj">
-      <Project>{49cff4b1-703f-48e9-9d74-08f3c0a3e3e2}</Project>
-      <Name>HB.FullStack.Mobile</Name>
+    <ProjectReference Include="..\..\..\HB.FullStack\src\mobile\HB.FullStack.XamarinForms\HB.FullStack.XamarinForms.csproj">
+      <Project>{80a6cb02-819b-4337-a8e4-a135b4aec1d1}</Project>
+      <Name>HB.FullStack.XamarinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Demo\Demo.csproj">
       <Project>{B473B8A7-748B-4847-89BD-641ADF00FB53}</Project>

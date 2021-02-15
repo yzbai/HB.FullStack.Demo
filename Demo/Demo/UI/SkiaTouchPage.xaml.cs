@@ -1,5 +1,5 @@
-﻿using HB.FullStack.Mobile.Base;
-using HB.FullStack.Mobile.Controls.Clock;
+﻿using HB.FullStack.XamarinForms.Base;
+using HB.FullStack.XamarinForms.Controls.Clock;
 
 using Microsoft.Extensions.Logging;
 

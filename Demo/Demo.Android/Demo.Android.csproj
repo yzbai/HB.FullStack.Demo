@@ -99,13 +99,13 @@
       <Project>{150f0643-a4f3-4150-9cb6-93c7512bfb1d}</Project>
       <Name>HB.FullStack.Database.ClientExtension</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile.Droid\HB.FullStack.Mobile.Droid.csproj">
-      <Project>{bbfd4eb1-2f82-4fc2-bb5c-00364a399422}</Project>
-      <Name>HB.FullStack.Mobile.Droid</Name>
+    <ProjectReference Include="..\..\..\HB.FullStack\src\mobile\HB.FullStack.Droid\HB.FullStack.Droid.csproj">
+      <Project>{66fb6311-fc0a-4823-8eca-93e8c67af424}</Project>
+      <Name>HB.FullStack.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile\HB.FullStack.Mobile.csproj">
-      <Project>{49cff4b1-703f-48e9-9d74-08f3c0a3e3e2}</Project>
-      <Name>HB.FullStack.Mobile</Name>
+    <ProjectReference Include="..\..\..\HB.FullStack\src\mobile\HB.FullStack.XamarinForms\HB.FullStack.XamarinForms.csproj">
+      <Project>{80a6cb02-819b-4337-a8e4-a135b4aec1d1}</Project>
+      <Name>HB.FullStack.XamarinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Demo\Demo.csproj">
       <Project>{B473B8A7-748B-4847-89BD-641ADF00FB53}</Project>
@@ -121,7 +121,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadUnhandledDeviceExceptionDemoAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionDemoAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

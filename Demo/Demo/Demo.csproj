@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\..\..\HB.FullStack\src\HB.FullStack.Mobile\HB.FullStack.Mobile.csproj" />
 	<ProjectReference Include="..\..\..\HB.FullStack\src\HB.Infrastructure.IdGen\HB.Infrastructure.IdGen.csproj" />
 	<ProjectReference Include="..\..\..\HB.FullStack\src\HB.Infrastructure.SQLite\HB.Infrastructure.SQLite.csproj" />
+	<ProjectReference Include="..\..\..\HB.FullStack\src\mobile\HB.FullStack.XamarinForms\HB.FullStack.XamarinForms.csproj" />
   </ItemGroup>
 
   <ItemGroup>
