@@ -38,8 +38,7 @@ namespace Demo.UI
 
             BindingContext = this;
         }
-        protected override IList<IBaseContentView?>? GetAllCustomerControls()
-        => new List<IBaseContentView?> { };
+        protected override IList<IBaseContentView?>? GetAllCustomerControls() => null;
 
         protected override void OnAppearing()
         {
