@@ -18,8 +18,8 @@
                 Source="bg_test" />
             <Label
                 HorizontalOptions="CenterAndExpand"
-                Text="xsdf dddxdxdxs to  Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+                VerticalOptions="CenterAndExpand"
+                Text="xsdf dddxdxdxs to  Xamarin.Forms!" />
 
             <Image>
                 <Image.Source>

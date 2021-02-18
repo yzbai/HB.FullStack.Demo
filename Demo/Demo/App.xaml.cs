@@ -1,5 +1,6 @@
 ﻿
 using HB.FullStack.Database;
+using HB.FullStack.XamarinForms;
 using HB.FullStack.XamarinForms.Base;
 using HB.FullStack.XamarinForms.IdBarriers;
 
@@ -33,16 +34,11 @@ namespace Demo
 
         public App(IServiceCollection services)
         {
+
             InitializeServices(services);
             InitializeComponent();
 
-            GotoMainPage();
-        }
-
-
-        public override void GotoMainPage()
-        {
-            MainPage = MainShell = new AppShell();
+            DemoNavigationService.Init();
         }
 
         protected override void RegisterServices(IServiceCollection services)

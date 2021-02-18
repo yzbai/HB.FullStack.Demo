@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+using HB.FullStack.XamarinForms;
 using HB.FullStack.XamarinForms.Base;
 using HB.FullStack.XamarinForms.Controls.Cropper;
 using HB.FullStack.XamarinForms.Platforms;
@@ -64,7 +65,7 @@ namespace Demo.UI
 
             CropperPage cropperPage = new CropperPage(fileResult.FullPath, USER_ID.ToString(), UserFileType.Avatar);
 
-            Push(cropperPage);
+            NavigationService.Current.Push(cropperPage);
         }
 
     }
