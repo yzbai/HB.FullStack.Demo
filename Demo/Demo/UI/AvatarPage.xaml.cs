@@ -63,7 +63,9 @@ namespace Demo.UI
                 return;
             }
 
-            CropperPage cropperPage = new CropperPage(fileResult.FullPath, USER_ID.ToString(), UserFileType.Avatar);
+            string avatarFullPath = Path.Combine(_fileHelper.GetDirectoryPath(UserFileType.Avatar), USER_ID.ToString());
+
+            CropperPage cropperPage = new CropperPage(fileResult.FullPath, avatarFullPath);
 
             NavigationService.Current.Push(cropperPage);
         }
