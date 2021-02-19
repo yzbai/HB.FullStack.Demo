@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using HB.FullStack.XamarinForms.Base;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -55,13 +57,13 @@ namespace Demo.UI
         {
             UserInfo initialInfo = new UserInfo { Name = "Get From Local", Age = -100 };
 
-            return new ObservableTask<UserInfo>(async () =>
+            return new ObservableTask<UserInfo>(initialInfo, async () =>
             {
                 await Task.Delay(3000);
 
                 return new UserInfo { Name = "Get From Remote", Age = 99 };
 
-            }, initialInfo);
+            });
         }
     }
 }
