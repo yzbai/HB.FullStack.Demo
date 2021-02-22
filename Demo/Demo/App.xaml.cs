@@ -34,11 +34,17 @@ namespace Demo
 
         public App(IServiceCollection services)
         {
-
             InitializeServices(services);
             InitializeComponent();
 
-            DemoNavigationService.Init();
+            MainPage = new AppShell();
+
+            NavigationService.Current.ResumeRouting();
+        }
+
+        protected override NavigationService GetNavigationServiceImpl()
+        {
+            return new DemoNavigationService(false);
         }
 
         protected override void RegisterServices(IServiceCollection services)

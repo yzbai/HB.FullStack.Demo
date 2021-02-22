@@ -47,7 +47,7 @@ namespace Demo.UI
 
             if (_fileHelper.IsFileExisted(USER_ID.ToString(), UserFileType.Avatar))
             {
-                AvatarSource = ImageSource.FromFile(_fileHelper.GetAvatarFilePath(USER_ID));
+                AvatarSource = ImageSource.FromFile(_fileHelper.GetAvatarFullPath(USER_ID));
             }
             else
             {

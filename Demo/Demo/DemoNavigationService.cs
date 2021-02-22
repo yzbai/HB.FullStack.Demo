@@ -10,34 +10,21 @@ namespace Demo
 {
     public class DemoNavigationService : NavigationService
     {
-        public override void PopoutIntroduce()
-        {
-        }
+        private readonly bool _needLoginBeforeAll;
 
-        public override void PopoutLogin(bool animated = true)
+        public DemoNavigationService(bool needLoginBeforeAll) : base(()=>Shell.Current.Navigation)
         {
-        }
-
-        public override void PopoutRegisterProfilePage()
-        {
+            _needLoginBeforeAll = needLoginBeforeAll;
         }
 
         public override void PushLoginPage(bool animated = true)
         {
+            
         }
 
-        public override void ResetMainPage()
+        public override Type? ResumeRouting()
         {
-            Application.Current.MainPage = new AppShell();
-        }
-
-        internal static void Init()
-        {
-            DemoNavigationService demoNavigationService = new DemoNavigationService();
-
-            Current = demoNavigationService;
-
-            Current.ResetMainPage();
+            return null;
         }
     }
 }
