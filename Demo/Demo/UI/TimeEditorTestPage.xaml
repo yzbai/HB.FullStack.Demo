@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.UI.TimeEditorTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:timeEditor="clr-namespace:HB.FullStack.XamarinForms.Controls.TimeEditor;assembly=HB.FullStack.XamarinForms">
+    <ContentPage.Resources />
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to Xamarin.Forms!" />
+
+            <timeEditor:TimeEditor
+                IsDisplay24HourFormat="{Binding IsDisplay24HourFormat}"
+                Time="{Binding Time, Mode=TwoWay}" />
+
+            <Label Text="{Binding Time.Hour}" />
+            <Label Text="{Binding Time.Minute}" />
+
+            <Button
+                Command="{Binding RandomTimeCommand}"
+                Text="随机时间" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

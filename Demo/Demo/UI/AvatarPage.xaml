@@ -8,12 +8,12 @@
         <StackLayout>
             <Label Text="xx" />
             <Image
-                Aspect="AspectFit"
+                WidthRequest="150"
                 HeightRequest="150"
                 HorizontalOptions="Center"
-                Source="{Binding AvatarSource}"
                 VerticalOptions="Center"
-                WidthRequest="150" />
+                Aspect="AspectFit"
+                Source="{Binding AvatarSource}" />
             <Button
                 Command="{Binding PickAvatarCommand}"
                 Text="头像" />

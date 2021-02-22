@@ -95,6 +95,14 @@
     -->
 
     <FlyoutItem
+        Title="TimeEditorTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:TimeEditorTestPage}"
+            Route="TimeEditorTestPage" />
+    </FlyoutItem>
+
+    <FlyoutItem
         Title="RepoTestPage"
         Icon="icon_about.png">
         <ShellContent
@@ -118,20 +126,8 @@
             Route="AvatarPage" />
     </FlyoutItem>
 
-    <FlyoutItem
-        Title="Figure"
-        Icon="icon_about.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate ui:FigureTestPage}"
-            Route="FigureTestPage" />
-    </FlyoutItem>
-    <FlyoutItem
-        Title="SkiaTouch"
-        Icon="icon_about.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate ui:SkiaTouchPage}"
-            Route="SkiaTouchPage" />
-    </FlyoutItem>
+
+
 
     <FlyoutItem
         Title="Image"
