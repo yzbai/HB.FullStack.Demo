@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="Demo.UI.BubblePage2"
-     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
     xmlns:styles="clr-namespace:HB.FullStack.XamarinForms.Styles;assembly=HB.FullStack.XamarinForms">
@@ -9,11 +9,11 @@
         <AbsoluteLayout x:Name="ContainerView">
             <skia:SKCanvasView
                 x:Name="CanvasView"
-                EnableTouchEvents="True"
-                Touch="CanvasView_Touch"
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                 AbsoluteLayout.LayoutFlags="SizeProportional"
-                PaintSurface="CanvasView_PaintSurface" />
+                EnableTouchEvents="True"
+                PaintSurface="CanvasView_PaintSurface"
+                Touch="CanvasView_Touch" />
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
