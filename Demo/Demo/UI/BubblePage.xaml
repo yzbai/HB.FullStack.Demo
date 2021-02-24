@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.UI.BubblePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:styles="clr-namespace:HB.FullStack.XamarinForms.Styles;assembly=HB.FullStack.XamarinForms">
+    <ContentPage.Content>
+        <Grid>
+            <skia:SKCanvasView
+                x:Name="CanvasView"
+                EnableTouchEvents="True"
+                Touch="CanvasView_Touch"
+                PaintSurface="CanvasView_PaintSurface" />
+            <AbsoluteLayout
+                x:Name="ContainerView"
+                InputTransparent="True" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<Grid
+                AbsoluteLayout.LayoutBounds="300, 500"
+                x:Name="MainGrid"
+                BackgroundColor="Wheat"
+                ColumnDefinitions="Auto, Auto, Auto, Auto,Auto"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto">
+
+
+    <Button Text="ClickMe" Clicked="Button_Clicked_1" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+
+    <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    HorizontalTextAlignment="Start"
+                    Text="上午 08:00 ~ 上午09:00" />
+    <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Text="背诵唐诗宋词第2章" />
+    <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Text="详细" />
+
+    <ImageButton
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Source="{FontImage FontFamily=MaterialIcon,
+                                       Glyph={Static Member=styles:MaterialFont.CalendarEdit}}" />
+    <ImageButton
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Source="{FontImage FontFamily=MaterialIcon,
+                                       Glyph={Static Member=styles:MaterialFont.MoveResize}}" />
+    <ImageButton
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Source="{FontImage FontFamily=MaterialIcon,
+                                       Glyph={Static Member=styles:MaterialFont.Delete}}" />
+
+
+</Grid>-->

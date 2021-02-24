@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-using HB.FullStack.XamarinForms.Common;
+using HB.FullStack.Common;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

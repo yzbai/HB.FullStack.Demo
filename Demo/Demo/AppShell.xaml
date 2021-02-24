@@ -95,6 +95,24 @@
     -->
 
     <FlyoutItem
+        Title="BubblePage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:BubblePage}"
+            Route="BubblePage" />
+    </FlyoutItem>
+    
+    <FlyoutItem
+        Title="TouchPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:TouchPage}"
+            Route="TouchPage" />
+    </FlyoutItem>
+
+    
+
+    <FlyoutItem
         Title="TimeEditorTestPage"
         Icon="icon_about.png">
         <ShellContent
