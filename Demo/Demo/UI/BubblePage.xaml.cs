@@ -15,6 +15,9 @@ using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
 namespace Demo.UI
 {
+    /// <summary>
+    /// 尝试失败，请使用BubblePage2，将SKCanvasView放到AbsoluteLayout里面而不是覆盖
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BubblePage : ContentPage
     {
@@ -30,7 +33,6 @@ namespace Demo.UI
         public BubblePage()
         {
             InitializeComponent();
-
         }
 
         private void CanvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)

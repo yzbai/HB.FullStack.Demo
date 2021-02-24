@@ -10,8 +10,8 @@
             <skia:SKCanvasView
                 x:Name="CanvasView"
                 EnableTouchEvents="True"
-                Touch="CanvasView_Touch"
-                PaintSurface="CanvasView_PaintSurface" />
+                PaintSurface="CanvasView_PaintSurface"
+                Touch="CanvasView_Touch" />
             <AbsoluteLayout
                 x:Name="ContainerView"
                 InputTransparent="True" />

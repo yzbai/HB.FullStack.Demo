@@ -95,13 +95,21 @@
     -->
 
     <FlyoutItem
+        Title="BubblePage2"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:BubblePage2}"
+            Route="BubblePage2" />
+    </FlyoutItem>
+
+    <FlyoutItem
         Title="BubblePage"
         Icon="icon_about.png">
         <ShellContent
             ContentTemplate="{DataTemplate ui:BubblePage}"
             Route="BubblePage" />
     </FlyoutItem>
-    
+
     <FlyoutItem
         Title="TouchPage"
         Icon="icon_about.png">
@@ -110,7 +118,7 @@
             Route="TouchPage" />
     </FlyoutItem>
 
-    
+
 
     <FlyoutItem
         Title="TimeEditorTestPage"
