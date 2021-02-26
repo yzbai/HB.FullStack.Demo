@@ -25,7 +25,7 @@ namespace Demo.UI
         {
             InitializeComponent();
 
-            FigureCanvasView2.EnableTouchEventPropagation = true;
+             
         }
 
         protected override IList<IBaseContentView?>? GetAllCustomerControls()
