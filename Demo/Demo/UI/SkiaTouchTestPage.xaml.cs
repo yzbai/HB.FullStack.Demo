@@ -24,6 +24,8 @@ namespace Demo.UI
         public SkiaTouchTestPage()
         {
             InitializeComponent();
+
+            FigureCanvasView2.EnableTouchEventPropagation = true;
         }
 
         protected override IList<IBaseContentView?>? GetAllCustomerControls()
