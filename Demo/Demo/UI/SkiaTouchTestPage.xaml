@@ -3,13 +3,19 @@
     x:Class="Demo.UI.SkiaTouchTestPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms">
+    xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:skiaFigure="clr-namespace:HB.FullStack.XamarinForms.Skia;assembly=HB.FullStack.XamarinForms">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <skiaFigure:SKFigureCanvasView
+                x:Name="FigureCanvasView"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional" />
+            <skiaFigure:SKFigureCanvasView
+                x:Name="FigureCanvasView2"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional" />
+        </AbsoluteLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

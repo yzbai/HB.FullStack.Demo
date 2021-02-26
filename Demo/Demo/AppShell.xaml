@@ -94,19 +94,30 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
     <FlyoutItem
-        Title="XctTouchTestPage"
-        Icon="icon_about.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate ui:XctTouchTestPage}"
-            Route="XctTouchTestPage" />
-    </FlyoutItem>
-    <FlyoutItem
         Title="SkiaTouchTestPage"
         Icon="icon_about.png">
         <ShellContent
             ContentTemplate="{DataTemplate ui:SkiaTouchTestPage}"
             Route="SkiaTouchTestPage" />
     </FlyoutItem>
+    <FlyoutItem
+        Title="SkiaDefaultTouchPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:SkiaDefaultTouchPage}"
+            Route="SkiaDefaultTouchPage" />
+    </FlyoutItem>
+
+
+
+    <FlyoutItem
+        Title="XctTouchTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:XctTouchTestPage}"
+            Route="XctTouchTestPage" />
+    </FlyoutItem>
+
 
     <FlyoutItem
         Title="BubblePage2"
@@ -122,14 +133,6 @@
         <ShellContent
             ContentTemplate="{DataTemplate ui:BubblePage}"
             Route="BubblePage" />
-    </FlyoutItem>
-
-    <FlyoutItem
-        Title="TouchPage"
-        Icon="icon_about.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate ui:TouchPage}"
-            Route="TouchPage" />
     </FlyoutItem>
 
 

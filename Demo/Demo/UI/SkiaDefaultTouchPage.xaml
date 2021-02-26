@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.UI.SkiaDefaultTouchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
+    <ContentPage.Content>
+        <Grid>
+            <skia:SKCanvasView
+                x:Name="View1"
+                EnableTouchEvents="True"
+                PaintSurface="View1_PaintSurface"
+                Touch="View1_Touch" />
+            <skia:SKCanvasView
+                x:Name="View2"
+                EnableTouchEvents="True"
+                PaintSurface="View2_PaintSurface"
+                Touch="View2_Touch" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

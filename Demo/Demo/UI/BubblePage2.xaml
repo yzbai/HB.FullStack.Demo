@@ -11,9 +11,7 @@
                 x:Name="CanvasView"
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
                 AbsoluteLayout.LayoutFlags="SizeProportional"
-                EnableTouchEvents="True"
-                PaintSurface="CanvasView_PaintSurface"
-                Touch="CanvasView_Touch" />
+                EnableTouchEvents="True" />
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
