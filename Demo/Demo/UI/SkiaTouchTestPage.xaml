@@ -27,10 +27,15 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Rect1:" />
-                    <Label Text="{Binding ResultDrawData.Rect, Converter={StaticResource RectToStringConverter}, Source={Reference Page}}" />
+                    <Label Text="{Binding ResultDrawData.Rect, Converter={StaticResource RectToStringConverter}}" />
                 </StackLayout>
 
-                <StackLayout BindableLayout.ItemsSource="{Binding ResultDrawDatas, Source={Reference Page}}">
+                <StackLayout>
+                    <Label Text="{Binding SelectedIds}"/>
+                    <Label Text="{Binding LongSelectedIds}"/>
+                </StackLayout>
+
+                <StackLayout BindableLayout.ItemsSource="{Binding ResultDrawDatas}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal">
@@ -42,7 +47,7 @@
                 </StackLayout>
 
                 <Button
-                    Command="{Binding RandomCommand, Source={Reference Page}}"
+                    Command="{Binding RandomCommand}"
                     Text="Random" />
             </StackLayout>
         </StackLayout>

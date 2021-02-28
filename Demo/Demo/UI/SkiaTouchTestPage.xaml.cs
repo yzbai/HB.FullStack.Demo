@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Windows.Input;
 
 using HB.FullStack.XamarinForms;
@@ -47,6 +48,8 @@ namespace Demo.UI
                 _resultDrawDatas = value;
 
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(SelectedIds));
+                OnPropertyChanged(nameof(LongSelectedIds));
 
                 if (_resultDrawDatas is ObservableCollection<RectangleDrawData> newCollection)
                 {
@@ -55,9 +58,47 @@ namespace Demo.UI
             }
         }
 
+        public string? SelectedIds
+        {
+            get
+            {
+                if (ResultDrawDatas == null)
+                {
+                    return null;
+                }
+
+                var step1 = ResultDrawDatas.Where(d => d != null && d.State == FigureState.Selected).ToList();
+                var step2 = step1.Select(d => d.Id).ToList();
+                var step3 = step2.ToJoinedString(" # ");
+
+                return step3;
+            }
+        }
+
+        public string? LongSelectedIds
+        {
+            get
+            {
+                if (ResultDrawDatas == null)
+                {
+                    return null;
+                }
+
+                BaseApplication.LogDebug("输出长按选择Ids");
+
+                var step1 = ResultDrawDatas.Where(d => d != null && d.State == FigureState.LongSelected).ToList();
+                var step2 = step1.Select(d => d.Id).ToList();
+                var step3 = step2.ToJoinedString(" # ");
+
+                return step3;
+            }
+        }
+
         private void OnResultDrawDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-
+            
+            OnPropertyChanged(nameof(SelectedIds));
+            OnPropertyChanged(nameof(LongSelectedIds));
         }
 
         public ICommand RandomCommand { get; set; }
@@ -72,7 +113,7 @@ namespace Demo.UI
 
                 for (int i = 0; i < 2; ++i)
                 {
-                    initDrawDatas.Add(new RectangleDrawData { Id = 101, Rect = GetRandomRect(), Color = ColorUtil.RandomColor().Color.ToSKColor() });
+                    initDrawDatas.Add(new RectangleDrawData { Id = 101 + i, Rect = GetRandomRect(), Color = ColorUtil.RandomColor().Color.ToSKColor() });
                 }
 
                 InitDrawDatas = new ObservableRangeCollection<RectangleDrawData>(initDrawDatas);
@@ -80,6 +121,8 @@ namespace Demo.UI
             });
 
             InitializeComponent();
+
+            BindingContext = this;
         }
         protected override IList<IBaseContentView?>? GetAllCustomerControls() => new IBaseContentView?[] { FigureCanvasView };
 
@@ -123,7 +166,12 @@ namespace Demo.UI
 
     public class RectangleCollectionFigure : SKFigureGroup<RectangleFigure, RectangleDrawData>
     {
-       
+        public RectangleCollectionFigure()
+        {
+            EnableLongTap = true;
+            EnableMultipleSelected = true;
+            EnableMultipleLongSelected = true;
+        }
     }
 
     public class RectangleFigure : SKFigure<RectangleDrawData>
@@ -133,9 +181,22 @@ namespace Demo.UI
             OneFingerDragged += OnOneFingerDragged;
         }
 
-        protected override void OnDraw(SKImageInfo info, SKCanvas canvas, RectangleDrawData initDrawData)
+        protected override void OnDraw(SKImageInfo info, SKCanvas canvas, RectangleDrawData initDrawData, FigureState state)
         {
-            using SKPaint paint = new SKPaint { Style = SKPaintStyle.Fill, Color = initDrawData.Color };
+            using SKPaint paint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 5, Color = initDrawData.Color };
+
+            if (state == FigureState.Selected)
+            {
+                paint.Style = SKPaintStyle.StrokeAndFill;
+                paint.StrokeWidth = 10;
+                paint.StrokeCap = SKStrokeCap.Round;
+            }
+            else if (state == FigureState.LongSelected)
+            {
+                paint.Style = SKPaintStyle.StrokeAndFill;
+                paint.StrokeWidth = 20;
+                paint.StrokeCap = SKStrokeCap.Square;
+            }
 
             canvas.DrawRect(initDrawData.Rect, paint);
         }
@@ -148,7 +209,7 @@ namespace Demo.UI
 
         protected override void OnCaculateOutput(out RectangleDrawData? newResultDrawData, RectangleDrawData initDrawData)
         {
-            newResultDrawData = new RectangleDrawData { Rect = Matrix.MapRect(initDrawData.Rect), Color = initDrawData.Color };
+            newResultDrawData = new RectangleDrawData { Rect = Matrix.MapRect(initDrawData.Rect), Color = initDrawData.Color, Id = initDrawData.Id, State = initDrawData.State };
         }
 
         private void OnOneFingerDragged(object sender, SKFigureTouchInfo e)
@@ -167,11 +228,6 @@ namespace Demo.UI
 
         public SKColor Color { get; set; }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id, Rect, Color);
-        }
-
         protected override bool EqualsImpl(SKFigureDrawData other)
         {
             if (other is RectangleDrawData data)
@@ -181,6 +237,17 @@ namespace Demo.UI
             }
 
             return false;
+        }
+
+        protected override HashCode GetHashCodeImpl()
+        {
+            HashCode hashCode = new HashCode();
+
+            hashCode.Add(Id);
+            hashCode.Add(Rect);
+            hashCode.Add(Color);
+
+            return hashCode;
         }
     }
 
