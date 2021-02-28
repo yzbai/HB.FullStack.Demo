@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.UI.TwoWayBindingTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Text="{Binding Data, Source={Reference Page}}" />
+            <Button
+                Clicked="Button_Clicked"
+                Text="Random" />
+            <Button
+                Clicked="Button_Clicked_1"
+                Text="BindableThing Change" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

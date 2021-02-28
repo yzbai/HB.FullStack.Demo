@@ -4,18 +4,47 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:HB.FullStack.XamarinForms.Base;assembly=HB.FullStack.XamarinForms"
+    xmlns:baseConverters="clr-namespace:HB.FullStack.XamarinForms.Converters;assembly=HB.FullStack.XamarinForms"
     xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-    xmlns:skiaFigure="clr-namespace:HB.FullStack.XamarinForms.Skia;assembly=HB.FullStack.XamarinForms">
-    <ContentPage.Content>
-        <AbsoluteLayout>
-            <skiaFigure:SKFigureCanvasView
-                x:Name="FigureCanvasView"
-                AbsoluteLayout.LayoutBounds="0,0,1,1"
-                AbsoluteLayout.LayoutFlags="SizeProportional" />
-            <skiaFigure:SKFigureCanvasView
-                x:Name="FigureCanvasView2"
-                AbsoluteLayout.LayoutBounds="0,0,1,1"
-                AbsoluteLayout.LayoutFlags="SizeProportional" />
-        </AbsoluteLayout>
-    </ContentPage.Content>
+    xmlns:skiaFigure="clr-namespace:HB.FullStack.XamarinForms.Skia;assembly=HB.FullStack.XamarinForms"
+    x:Name="Page">
+    <base:BaseContentPage.Resources>
+        <baseConverters:RectToStringConverter x:Key="RectToStringConverter" />
+    </base:BaseContentPage.Resources>
+    <base:BaseContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <skiaFigure:SKFigureCanvasView
+                    x:Name="FigureCanvasView"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="SizeProportional" />
+            </AbsoluteLayout>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End">
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Rect1:" />
+                    <Label Text="{Binding ResultDrawData.Rect, Converter={StaticResource RectToStringConverter}, Source={Reference Page}}" />
+                </StackLayout>
+
+                <StackLayout BindableLayout.ItemsSource="{Binding ResultDrawDatas, Source={Reference Page}}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Rect:" />
+                                <Label Text="{Binding Rect, Converter={StaticResource RectToStringConverter}}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+
+                <Button
+                    Command="{Binding RandomCommand, Source={Reference Page}}"
+                    Text="Random" />
+            </StackLayout>
+        </StackLayout>
+    </base:BaseContentPage.Content>
 </base:BaseContentPage>

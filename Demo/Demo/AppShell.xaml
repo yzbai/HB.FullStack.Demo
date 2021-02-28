@@ -93,13 +93,24 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
+
     <FlyoutItem
         Title="SkiaTouchTestPage"
         Icon="icon_about.png">
         <ShellContent
             ContentTemplate="{DataTemplate ui:SkiaTouchTestPage}"
             Route="SkiaTouchTestPage" />
+
     </FlyoutItem>
+    <FlyoutItem
+        Title="TwoWayBindingTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:TwoWayBindingTestPage}"
+            Route="TwoWayBindingTestPage" />
+    </FlyoutItem>
+
+
     <FlyoutItem
         Title="SkiaDefaultTouchPage"
         Icon="icon_about.png">
