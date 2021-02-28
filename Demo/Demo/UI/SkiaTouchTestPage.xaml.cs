@@ -121,7 +121,7 @@ namespace Demo.UI
         }
     }
 
-    public class RectangleCollectionFigure : SKFigureCollection<RectangleFigure, RectangleDrawData>
+    public class RectangleCollectionFigure : SKFigureGroup<RectangleFigure, RectangleDrawData>
     {
        
     }
