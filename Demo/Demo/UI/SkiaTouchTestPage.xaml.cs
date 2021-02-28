@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 using HB.FullStack.XamarinForms;
 using HB.FullStack.XamarinForms.Base;
 using HB.FullStack.XamarinForms.Skia;
-using HB.FullStack.XamarinForms.Skia.Generic;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
@@ -126,72 +121,9 @@ namespace Demo.UI
         }
     }
 
-    public class RectangleCollectionFigure : SKFigureCollection<RectangleFigure>
+    public class RectangleCollectionFigure : SKFigureCollection<RectangleFigure, RectangleDrawData>
     {
-        public static BindableProperty ResultDrawDatasProperty = BindableProperty.Create(
-            nameof(ResultDrawDatas),
-            typeof(IList<RectangleDrawData>),
-            typeof(RectangleCollectionFigure),
-            null,
-            BindingMode.OneWayToSource);
-
-        public IList<RectangleDrawData?>? ResultDrawDatas { get => (IList<RectangleDrawData?>?)GetValue(ResultDrawDatasProperty); set => SetValue(ResultDrawDatasProperty, value); }
-
-        public static BindableProperty InitDrawDatasProperty = BindableProperty.Create(
-            nameof(InitDrawDatas),
-            typeof(IList<RectangleDrawData>),
-            typeof(RectangleCollectionFigure),
-            null,
-            BindingMode.OneWay,
-            propertyChanged: (b, oldValues, newValues) => ((RectangleCollectionFigure)b).OnInitDrawDatasChanged((IList<RectangleDrawData>?)oldValues, (IList<RectangleDrawData>?)newValues));
-
-        public IList<RectangleDrawData>? InitDrawDatas { get => (IList<RectangleDrawData>?)GetValue(InitDrawDatasProperty); set => SetValue(InitDrawDatasProperty, value); }
-
-        private void OnInitDrawDatasChanged(IList<RectangleDrawData>? oldValues, IList<RectangleDrawData>? newValues)
-        {
-            //Create and Add Figures
-            ResumeFigures();
-
-            if (oldValues is ObservableCollection<RectangleDrawData> oldCollection)
-            {
-                oldCollection.CollectionChanged -= OnInitDrawDatasCollectionChanged;
-            }
-
-            if (newValues is ObservableCollection<RectangleDrawData> newCollection)
-            {
-                newCollection.CollectionChanged += OnInitDrawDatasCollectionChanged;
-            }
-
-            InvalidateMatrixAndSurface();
-        }
-
-        private void ResumeFigures()
-        {
-            ClearFigures();
-
-            if (InitDrawDatas == null)
-            {
-                return;
-            }
-
-            ResultDrawDatas = new ObservableRangeCollection<RectangleDrawData?>(Enumerable.Repeat<RectangleDrawData?>(null, InitDrawDatas.Count));
-
-            for (int i = 0; i < InitDrawDatas.Count; ++i)
-            {
-                RectangleFigure figure = new RectangleFigure();
-                figure.SetBinding(RectangleFigure.InitDrawDataProperty, new Binding($"{nameof(InitDrawDatas)}[{i}]", source: this));
-                figure.SetBinding(RectangleFigure.ResultDrawDataProperty, new Binding($"{nameof(ResultDrawDatas)}[{i}]", source: this));
-
-                AddFigure(figure);
-            }
-        }
-
-        private void OnInitDrawDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            ResumeFigures();
-
-            InvalidateMatrixAndSurface();
-        }
+       
     }
 
     public class RectangleFigure : SKFigure<RectangleDrawData>
@@ -210,7 +142,7 @@ namespace Demo.UI
 
         protected override void OnUpdateHitTestPath(SKImageInfo info, RectangleDrawData initDrawData)
         {
-            HitTestPath.Reset();
+            //HitTestPath.Reset();
             HitTestPath.AddRect(initDrawData.Rect);
         }
 
