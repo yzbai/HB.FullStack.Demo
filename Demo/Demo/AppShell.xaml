@@ -95,6 +95,21 @@
     -->
 
     <FlyoutItem
+        Title="AliyunOSSTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:AliyunOSSTestPage}"
+            Route="AliyunOSSTestPage" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="SvgTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:SvgTestPage}"
+            Route="SvgTestPage" />
+    </FlyoutItem>
+    <FlyoutItem
         Title="SkiaTouchTestPage"
         Icon="icon_about.png">
         <ShellContent

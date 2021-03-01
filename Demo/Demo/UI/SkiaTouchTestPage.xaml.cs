@@ -48,14 +48,23 @@ namespace Demo.UI
                 _resultDrawDatas = value;
 
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(SelectedIds));
-                OnPropertyChanged(nameof(LongSelectedIds));
+
+                CheckOnIfSignalNewSelectedIds();
+
+                
 
                 if (_resultDrawDatas is ObservableCollection<RectangleDrawData> newCollection)
                 {
                     newCollection.CollectionChanged += OnResultDrawDatasCollectionChanged;
                 }
             }
+        }
+
+        private void CheckOnIfSignalNewSelectedIds()
+        {
+            //通过比较前后两次选择状态，不相同的时候，再发射Notify
+            OnPropertyChanged(nameof(SelectedIds));
+            OnPropertyChanged(nameof(LongSelectedIds));
         }
 
         public string? SelectedIds
@@ -96,9 +105,8 @@ namespace Demo.UI
 
         private void OnResultDrawDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            
-            OnPropertyChanged(nameof(SelectedIds));
-            OnPropertyChanged(nameof(LongSelectedIds));
+
+            CheckOnIfSignalNewSelectedIds();
         }
 
         public ICommand RandomCommand { get; set; }

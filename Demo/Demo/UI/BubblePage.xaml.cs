@@ -49,7 +49,6 @@ namespace Demo.UI
 
             _centerPoint = SKUtil.ToPoint(center);
 
-
             canvas.Clear();
 
             using SKPaint paint = new SKPaint() { Style = SKPaintStyle.StrokeAndFill, Color = SKColors.Yellow };
@@ -99,9 +98,8 @@ namespace Demo.UI
             };
         }
 
-
-        double _thMargin = 2;
-        Rectangle? _curBound;
+        private double _thMargin = 2;
+        private Rectangle? _curBound;
 
         private void DisplayBubblePop(Point point)
         {
@@ -200,7 +198,6 @@ namespace Demo.UI
 
             ContainerView.Children.Add(_curBubbleView);
 
-
             //检查是否溢出屏幕
             if (viewX < 0)
             {
@@ -210,7 +207,6 @@ namespace Demo.UI
             {
                 viewX = ContainerView.Width - viewWidth;
             }
-
 
             if (viewY < 0)
             {

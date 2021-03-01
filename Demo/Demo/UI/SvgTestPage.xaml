@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.UI.SvgTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
+    <ContentPage.Content>
+        <StackLayout>
+            <skia:SKCanvasView x:Name="CanvasView" PaintSurface="SKCanvasView_PaintSurface" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            <Button Text="Load" Clicked="Button_Clicked" VerticalOptions="End"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
