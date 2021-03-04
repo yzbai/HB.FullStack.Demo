@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 using Aliyun.OSS;
 
+using HB.FullStack.XamarinForms;
 using HB.FullStack.XamarinForms.Platforms;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,20 +21,13 @@ namespace Demo.UI
     public partial class AliyunOSSTestPage : ContentPage
     {
         private OssClient _ossClient;
-        private IFileHelper _fileHelper;
 
         public AliyunOSSTestPage()
         {
             InitializeComponent();
 
-//            AccessKey ID
-//LTAI4G2LFJ79qZUCSSGDMALM
-//AccessKey Secret
-//H8BjcZWXiaBYC8jAbIwok4dJQm4wAy
+            _ossClient = new OssClient("oss-cn-hangzhou.aliyuncs.com", "xxx", "yy");
 
-            _ossClient = new OssClient("oss-cn-hangzhou.aliyuncs.com", "LTAI4G2LFJ79qZUCSSGDMALM", "H8BjcZWXiaBYC8jAbIwok4dJQm4wAy");
-
-            _fileHelper = DependencyService.Resolve<IFileHelper>();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -49,16 +44,16 @@ namespace Demo.UI
 
             using OssObject obj = _ossClient.GetObject(bucketName: "dev-ahabit", key: "Test.zip");
 
-            string fullPath = await _fileHelper.SaveFileAsync(obj.Content, obj.Key, UserFileType.Cache).ConfigureAwait(false);
+            string? fullPath = await LocalFileHelper.SaveFileAsync(obj.Content, obj.Key, TestFileCategory.Test).ConfigureAwait(false);
 
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             //上传
-            using Stream stream = _fileHelper.GetAssetStream("Test.zip");
+            using Stream stream = await FileSystem.OpenAppPackageFileAsync("Test.zip").ConfigureAwait(false);
 
-            string fullPath = await _fileHelper.SaveFileAsync(stream, "Test.zip", UserFileType.Cache).ConfigureAwait(false);
+            string? fullPath = await LocalFileHelper.SaveFileAsync(stream, "Test.zip", TestFileCategory.Test).ConfigureAwait(false);
 
 
             using PutObjectResult result = _ossClient.PutObject(bucketName: "dev-ahabit", key: "Test.zip", fileToUpload: fullPath);
@@ -67,5 +62,12 @@ namespace Demo.UI
 
 
         }
+
+
+    }
+
+    public enum TestFileCategory
+    {
+        Test
     }
 }

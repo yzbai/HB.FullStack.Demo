@@ -26,6 +26,8 @@ namespace Demo.UI
 
         private string? _croppedFullPath;
 
+        private string _defaultAvatarPath = "bg_test.png";
+
         public AvatarPage()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace Demo.UI
 
             BindingContext = this;
 
-            _croppedFullPath = 
+            _croppedFullPath = Path.Combine(FileSystem.AppDataDirectory, "avatar", "testCropped.xx");
         }
 
         protected override IList<IBaseContentView?>? GetAllCustomerControls() => null;
@@ -43,13 +45,13 @@ namespace Demo.UI
         {
             base.OnAppearing();
 
-            if (_fileHelper.IsFileExisted(USER_ID.ToString(), UserFileType.Avatar))
+            if (File.Exists(_croppedFullPath))
             {
-                AvatarSource = ImageSource.FromFile(_fileHelper.GetAvatarFullPath(USER_ID));
+                AvatarSource = ImageSource.FromFile(_croppedFullPath);
             }
             else
             {
-                AvatarSource = ImageSource.FromFile("bg_test.png");
+                AvatarSource = ImageSource.FromFile(_defaultAvatarPath);
             }
         }
 
@@ -62,9 +64,7 @@ namespace Demo.UI
                 return;
             }
 
-            string avatarFullPath = Path.Combine(_fileHelper.GetDirectoryPath(UserFileType.Avatar), USER_ID.ToString());
-
-            CropperPage cropperPage = new CropperPage(fileResult.FullPath, avatarFullPath);
+            CropperPage cropperPage = new CropperPage(fileResult.FullPath, _croppedFullPath, _=> { });
 
             NavigationService.Current.Push(cropperPage);
         }
