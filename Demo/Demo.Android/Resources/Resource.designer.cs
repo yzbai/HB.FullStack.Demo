@@ -57,19 +57,19 @@ namespace Demo.Droid
 			global::HB.FullStack.Droid.Resource.Animation.EnterFromRight = global::Demo.Droid.Resource.Animation.EnterFromRight;
 			global::HB.FullStack.Droid.Resource.Animation.ExitToLeft = global::Demo.Droid.Resource.Animation.ExitToLeft;
 			global::HB.FullStack.Droid.Resource.Animation.ExitToRight = global::Demo.Droid.Resource.Animation.ExitToRight;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_close_enter = global::Demo.Droid.Resource.Animation.fragment_close_enter;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_close_exit = global::Demo.Droid.Resource.Animation.fragment_close_exit;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_fade_enter = global::Demo.Droid.Resource.Animation.fragment_fade_enter;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_fade_exit = global::Demo.Droid.Resource.Animation.fragment_fade_exit;
 			global::HB.FullStack.Droid.Resource.Animation.fragment_fast_out_extra_slow_in = global::Demo.Droid.Resource.Animation.fragment_fast_out_extra_slow_in;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_open_enter = global::Demo.Droid.Resource.Animation.fragment_open_enter;
+			global::HB.FullStack.Droid.Resource.Animation.fragment_open_exit = global::Demo.Droid.Resource.Animation.fragment_open_exit;
 			global::HB.FullStack.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::HB.FullStack.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::HB.FullStack.Droid.Resource.Animation.mtrl_card_lowers_interpolator = global::Demo.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
 			global::HB.FullStack.Droid.Resource.Animator.design_appbar_state_list_animator = global::Demo.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::HB.FullStack.Droid.Resource.Animator.design_fab_hide_motion_spec = global::Demo.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::HB.FullStack.Droid.Resource.Animator.design_fab_show_motion_spec = global::Demo.Droid.Resource.Animator.design_fab_show_motion_spec;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_close_enter = global::Demo.Droid.Resource.Animator.fragment_close_enter;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_close_exit = global::Demo.Droid.Resource.Animator.fragment_close_exit;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_fade_enter = global::Demo.Droid.Resource.Animator.fragment_fade_enter;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_fade_exit = global::Demo.Droid.Resource.Animator.fragment_fade_exit;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_open_enter = global::Demo.Droid.Resource.Animator.fragment_open_enter;
-			global::HB.FullStack.Droid.Resource.Animator.fragment_open_exit = global::Demo.Droid.Resource.Animator.fragment_open_exit;
 			global::HB.FullStack.Droid.Resource.Animator.mtrl_btn_state_list_anim = global::Demo.Droid.Resource.Animator.mtrl_btn_state_list_anim;
 			global::HB.FullStack.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::Demo.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::HB.FullStack.Droid.Resource.Animator.mtrl_card_state_list_anim = global::Demo.Droid.Resource.Animator.mtrl_card_state_list_anim;
@@ -1687,7 +1687,6 @@ namespace Demo.Droid
 			global::HB.FullStack.Droid.Resource.Id.snap = global::Demo.Droid.Resource.Id.snap;
 			global::HB.FullStack.Droid.Resource.Id.snapMargins = global::Demo.Droid.Resource.Id.snapMargins;
 			global::HB.FullStack.Droid.Resource.Id.spacer = global::Demo.Droid.Resource.Id.spacer;
-			global::HB.FullStack.Droid.Resource.Id.special_effects_controller_view_tag = global::Demo.Droid.Resource.Id.special_effects_controller_view_tag;
 			global::HB.FullStack.Droid.Resource.Id.split_action_bar = global::Demo.Droid.Resource.Id.split_action_bar;
 			global::HB.FullStack.Droid.Resource.Id.src_atop = global::Demo.Droid.Resource.Id.src_atop;
 			global::HB.FullStack.Droid.Resource.Id.src_in = global::Demo.Droid.Resource.Id.src_in;
@@ -1746,9 +1745,7 @@ namespace Demo.Droid
 			global::HB.FullStack.Droid.Resource.Id.up = global::Demo.Droid.Resource.Id.up;
 			global::HB.FullStack.Droid.Resource.Id.useLogo = global::Demo.Droid.Resource.Id.useLogo;
 			global::HB.FullStack.Droid.Resource.Id.view_offset_helper = global::Demo.Droid.Resource.Id.view_offset_helper;
-			global::HB.FullStack.Droid.Resource.Id.view_tree_lifecycle_owner = global::Demo.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::HB.FullStack.Droid.Resource.Id.view_tree_saved_state_registry_owner = global::Demo.Droid.Resource.Id.view_tree_saved_state_registry_owner;
-			global::HB.FullStack.Droid.Resource.Id.view_tree_view_model_store_owner = global::Demo.Droid.Resource.Id.view_tree_view_model_store_owner;
 			global::HB.FullStack.Droid.Resource.Id.visible = global::Demo.Droid.Resource.Id.visible;
 			global::HB.FullStack.Droid.Resource.Id.visible_removing_fragment_view_tag = global::Demo.Droid.Resource.Id.visible_removing_fragment_view_tag;
 			global::HB.FullStack.Droid.Resource.Id.withinBounds = global::Demo.Droid.Resource.Id.withinBounds;
@@ -6218,7 +6215,13 @@ namespace Demo.Droid
 			global::Xamarin.CommunityToolkit.Resource.Animation.EnterFromRight = global::Demo.Droid.Resource.Animation.EnterFromRight;
 			global::Xamarin.CommunityToolkit.Resource.Animation.ExitToLeft = global::Demo.Droid.Resource.Animation.ExitToLeft;
 			global::Xamarin.CommunityToolkit.Resource.Animation.ExitToRight = global::Demo.Droid.Resource.Animation.ExitToRight;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_close_enter = global::Demo.Droid.Resource.Animation.fragment_close_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_close_exit = global::Demo.Droid.Resource.Animation.fragment_close_exit;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_fade_enter = global::Demo.Droid.Resource.Animation.fragment_fade_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_fade_exit = global::Demo.Droid.Resource.Animation.fragment_fade_exit;
 			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_fast_out_extra_slow_in = global::Demo.Droid.Resource.Animation.fragment_fast_out_extra_slow_in;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_open_enter = global::Demo.Droid.Resource.Animation.fragment_open_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animation.fragment_open_exit = global::Demo.Droid.Resource.Animation.fragment_open_exit;
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_card_lowers_interpolator = global::Demo.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
@@ -9858,7 +9861,13 @@ namespace Demo.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.EnterFromRight = global::Demo.Droid.Resource.Animation.EnterFromRight;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.ExitToLeft = global::Demo.Droid.Resource.Animation.ExitToLeft;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.ExitToRight = global::Demo.Droid.Resource.Animation.ExitToRight;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_close_enter = global::Demo.Droid.Resource.Animation.fragment_close_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_close_exit = global::Demo.Droid.Resource.Animation.fragment_close_exit;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_fade_enter = global::Demo.Droid.Resource.Animation.fragment_fade_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_fade_exit = global::Demo.Droid.Resource.Animation.fragment_fade_exit;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_fast_out_extra_slow_in = global::Demo.Droid.Resource.Animation.fragment_fast_out_extra_slow_in;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_open_enter = global::Demo.Droid.Resource.Animation.fragment_open_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.fragment_open_exit = global::Demo.Droid.Resource.Animation.fragment_open_exit;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_card_lowers_interpolator = global::Demo.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
@@ -13477,7 +13486,13 @@ namespace Demo.Droid
 			global::Xamarin.Forms.Platform.Resource.Animation.EnterFromRight = global::Demo.Droid.Resource.Animation.EnterFromRight;
 			global::Xamarin.Forms.Platform.Resource.Animation.ExitToLeft = global::Demo.Droid.Resource.Animation.ExitToLeft;
 			global::Xamarin.Forms.Platform.Resource.Animation.ExitToRight = global::Demo.Droid.Resource.Animation.ExitToRight;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_close_enter = global::Demo.Droid.Resource.Animation.fragment_close_enter;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_close_exit = global::Demo.Droid.Resource.Animation.fragment_close_exit;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_fade_enter = global::Demo.Droid.Resource.Animation.fragment_fade_enter;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_fade_exit = global::Demo.Droid.Resource.Animation.fragment_fade_exit;
 			global::Xamarin.Forms.Platform.Resource.Animation.fragment_fast_out_extra_slow_in = global::Demo.Droid.Resource.Animation.fragment_fast_out_extra_slow_in;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_open_enter = global::Demo.Droid.Resource.Animation.fragment_open_enter;
+			global::Xamarin.Forms.Platform.Resource.Animation.fragment_open_exit = global::Demo.Droid.Resource.Animation.fragment_open_exit;
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Demo.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_card_lowers_interpolator = global::Demo.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
@@ -17166,16 +17181,34 @@ namespace Demo.Droid
 			public const int ExitToRight = 2130771999;
 			
 			// aapt resource value: 0x7F010020
-			public const int fragment_fast_out_extra_slow_in = 2130772000;
+			public const int fragment_close_enter = 2130772000;
 			
 			// aapt resource value: 0x7F010021
-			public const int mtrl_bottom_sheet_slide_in = 2130772001;
+			public const int fragment_close_exit = 2130772001;
 			
 			// aapt resource value: 0x7F010022
-			public const int mtrl_bottom_sheet_slide_out = 2130772002;
+			public const int fragment_fade_enter = 2130772002;
 			
 			// aapt resource value: 0x7F010023
-			public const int mtrl_card_lowers_interpolator = 2130772003;
+			public const int fragment_fade_exit = 2130772003;
+			
+			// aapt resource value: 0x7F010024
+			public const int fragment_fast_out_extra_slow_in = 2130772004;
+			
+			// aapt resource value: 0x7F010025
+			public const int fragment_open_enter = 2130772005;
+			
+			// aapt resource value: 0x7F010026
+			public const int fragment_open_exit = 2130772006;
+			
+			// aapt resource value: 0x7F010027
+			public const int mtrl_bottom_sheet_slide_in = 2130772007;
+			
+			// aapt resource value: 0x7F010028
+			public const int mtrl_bottom_sheet_slide_out = 2130772008;
+			
+			// aapt resource value: 0x7F010029
+			public const int mtrl_card_lowers_interpolator = 2130772009;
 			
 			static Animation()
 			{
@@ -17200,58 +17233,40 @@ namespace Demo.Droid
 			public const int design_fab_show_motion_spec = 2130837506;
 			
 			// aapt resource value: 0x7F020003
-			public const int fragment_close_enter = 2130837507;
+			public const int mtrl_btn_state_list_anim = 2130837507;
 			
 			// aapt resource value: 0x7F020004
-			public const int fragment_close_exit = 2130837508;
+			public const int mtrl_btn_unelevated_state_list_anim = 2130837508;
 			
 			// aapt resource value: 0x7F020005
-			public const int fragment_fade_enter = 2130837509;
+			public const int mtrl_card_state_list_anim = 2130837509;
 			
 			// aapt resource value: 0x7F020006
-			public const int fragment_fade_exit = 2130837510;
+			public const int mtrl_chip_state_list_anim = 2130837510;
 			
 			// aapt resource value: 0x7F020007
-			public const int fragment_open_enter = 2130837511;
+			public const int mtrl_extended_fab_change_size_motion_spec = 2130837511;
 			
 			// aapt resource value: 0x7F020008
-			public const int fragment_open_exit = 2130837512;
+			public const int mtrl_extended_fab_hide_motion_spec = 2130837512;
 			
 			// aapt resource value: 0x7F020009
-			public const int mtrl_btn_state_list_anim = 2130837513;
+			public const int mtrl_extended_fab_show_motion_spec = 2130837513;
 			
 			// aapt resource value: 0x7F02000A
-			public const int mtrl_btn_unelevated_state_list_anim = 2130837514;
+			public const int mtrl_extended_fab_state_list_animator = 2130837514;
 			
 			// aapt resource value: 0x7F02000B
-			public const int mtrl_card_state_list_anim = 2130837515;
+			public const int mtrl_fab_hide_motion_spec = 2130837515;
 			
 			// aapt resource value: 0x7F02000C
-			public const int mtrl_chip_state_list_anim = 2130837516;
+			public const int mtrl_fab_show_motion_spec = 2130837516;
 			
 			// aapt resource value: 0x7F02000D
-			public const int mtrl_extended_fab_change_size_motion_spec = 2130837517;
+			public const int mtrl_fab_transformation_sheet_collapse_spec = 2130837517;
 			
 			// aapt resource value: 0x7F02000E
-			public const int mtrl_extended_fab_hide_motion_spec = 2130837518;
-			
-			// aapt resource value: 0x7F02000F
-			public const int mtrl_extended_fab_show_motion_spec = 2130837519;
-			
-			// aapt resource value: 0x7F020010
-			public const int mtrl_extended_fab_state_list_animator = 2130837520;
-			
-			// aapt resource value: 0x7F020011
-			public const int mtrl_fab_hide_motion_spec = 2130837521;
-			
-			// aapt resource value: 0x7F020012
-			public const int mtrl_fab_show_motion_spec = 2130837522;
-			
-			// aapt resource value: 0x7F020013
-			public const int mtrl_fab_transformation_sheet_collapse_spec = 2130837523;
-			
-			// aapt resource value: 0x7F020014
-			public const int mtrl_fab_transformation_sheet_expand_spec = 2130837524;
+			public const int mtrl_fab_transformation_sheet_expand_spec = 2130837518;
 			
 			static Animator()
 			{
@@ -22171,139 +22186,136 @@ namespace Demo.Droid
 			public const int spacer = 2131230975;
 			
 			// aapt resource value: 0x7F080100
-			public const int special_effects_controller_view_tag = 2131230976;
+			public const int split_action_bar = 2131230976;
 			
 			// aapt resource value: 0x7F080101
-			public const int split_action_bar = 2131230977;
+			public const int src_atop = 2131230977;
 			
 			// aapt resource value: 0x7F080102
-			public const int src_atop = 2131230978;
+			public const int src_in = 2131230978;
 			
 			// aapt resource value: 0x7F080103
-			public const int src_in = 2131230979;
+			public const int src_over = 2131230979;
 			
 			// aapt resource value: 0x7F080104
-			public const int src_over = 2131230980;
+			public const int start = 2131230980;
 			
 			// aapt resource value: 0x7F080105
-			public const int start = 2131230981;
+			public const int status_bar_latest_event_content = 2131230981;
 			
 			// aapt resource value: 0x7F080106
-			public const int status_bar_latest_event_content = 2131230982;
+			public const int stretch = 2131230982;
 			
 			// aapt resource value: 0x7F080107
-			public const int stretch = 2131230983;
+			public const int submenuarrow = 2131230983;
 			
 			// aapt resource value: 0x7F080108
-			public const int submenuarrow = 2131230984;
-			
-			// aapt resource value: 0x7F080109
-			public const int submit_area = 2131230985;
+			public const int submit_area = 2131230984;
 			
 			// aapt resource value: 0x7F080007
 			public const int SYM = 2131230727;
 			
+			// aapt resource value: 0x7F080109
+			public const int tabMode = 2131230985;
+			
 			// aapt resource value: 0x7F08010A
-			public const int tabMode = 2131230986;
+			public const int tag_accessibility_actions = 2131230986;
 			
 			// aapt resource value: 0x7F08010B
-			public const int tag_accessibility_actions = 2131230987;
+			public const int tag_accessibility_clickable_spans = 2131230987;
 			
 			// aapt resource value: 0x7F08010C
-			public const int tag_accessibility_clickable_spans = 2131230988;
+			public const int tag_accessibility_heading = 2131230988;
 			
 			// aapt resource value: 0x7F08010D
-			public const int tag_accessibility_heading = 2131230989;
+			public const int tag_accessibility_pane_title = 2131230989;
 			
 			// aapt resource value: 0x7F08010E
-			public const int tag_accessibility_pane_title = 2131230990;
+			public const int tag_screen_reader_focusable = 2131230990;
 			
 			// aapt resource value: 0x7F08010F
-			public const int tag_screen_reader_focusable = 2131230991;
+			public const int tag_transition_group = 2131230991;
 			
 			// aapt resource value: 0x7F080110
-			public const int tag_transition_group = 2131230992;
+			public const int tag_unhandled_key_event_manager = 2131230992;
 			
 			// aapt resource value: 0x7F080111
-			public const int tag_unhandled_key_event_manager = 2131230993;
+			public const int tag_unhandled_key_listeners = 2131230993;
 			
 			// aapt resource value: 0x7F080112
-			public const int tag_unhandled_key_listeners = 2131230994;
+			public const int test_checkbox_android_button_tint = 2131230994;
 			
 			// aapt resource value: 0x7F080113
-			public const int test_checkbox_android_button_tint = 2131230995;
+			public const int test_checkbox_app_button_tint = 2131230995;
 			
 			// aapt resource value: 0x7F080114
-			public const int test_checkbox_app_button_tint = 2131230996;
+			public const int test_radiobutton_android_button_tint = 2131230996;
 			
 			// aapt resource value: 0x7F080115
-			public const int test_radiobutton_android_button_tint = 2131230997;
+			public const int test_radiobutton_app_button_tint = 2131230997;
 			
 			// aapt resource value: 0x7F080116
-			public const int test_radiobutton_app_button_tint = 2131230998;
+			public const int text = 2131230998;
 			
 			// aapt resource value: 0x7F080117
-			public const int text = 2131230999;
+			public const int text2 = 2131230999;
 			
 			// aapt resource value: 0x7F080118
-			public const int text2 = 2131231000;
-			
-			// aapt resource value: 0x7F080119
-			public const int textEnd = 2131231001;
-			
-			// aapt resource value: 0x7F08011F
-			public const int textinput_counter = 2131231007;
-			
-			// aapt resource value: 0x7F080120
-			public const int textinput_error = 2131231008;
-			
-			// aapt resource value: 0x7F080121
-			public const int textinput_helper_text = 2131231009;
-			
-			// aapt resource value: 0x7F080122
-			public const int textinput_placeholder = 2131231010;
-			
-			// aapt resource value: 0x7F080123
-			public const int textinput_prefix_text = 2131231011;
-			
-			// aapt resource value: 0x7F080124
-			public const int textinput_suffix_text = 2131231012;
-			
-			// aapt resource value: 0x7F08011A
-			public const int textSpacerNoButtons = 2131231002;
-			
-			// aapt resource value: 0x7F08011B
-			public const int textSpacerNoTitle = 2131231003;
-			
-			// aapt resource value: 0x7F08011C
-			public const int textStart = 2131231004;
-			
-			// aapt resource value: 0x7F08011D
-			public const int text_input_end_icon = 2131231005;
+			public const int textEnd = 2131231000;
 			
 			// aapt resource value: 0x7F08011E
-			public const int text_input_start_icon = 2131231006;
+			public const int textinput_counter = 2131231006;
+			
+			// aapt resource value: 0x7F08011F
+			public const int textinput_error = 2131231007;
+			
+			// aapt resource value: 0x7F080120
+			public const int textinput_helper_text = 2131231008;
+			
+			// aapt resource value: 0x7F080121
+			public const int textinput_placeholder = 2131231009;
+			
+			// aapt resource value: 0x7F080122
+			public const int textinput_prefix_text = 2131231010;
+			
+			// aapt resource value: 0x7F080123
+			public const int textinput_suffix_text = 2131231011;
+			
+			// aapt resource value: 0x7F080119
+			public const int textSpacerNoButtons = 2131231001;
+			
+			// aapt resource value: 0x7F08011A
+			public const int textSpacerNoTitle = 2131231002;
+			
+			// aapt resource value: 0x7F08011B
+			public const int textStart = 2131231003;
+			
+			// aapt resource value: 0x7F08011C
+			public const int text_input_end_icon = 2131231004;
+			
+			// aapt resource value: 0x7F08011D
+			public const int text_input_start_icon = 2131231005;
+			
+			// aapt resource value: 0x7F080124
+			public const int time = 2131231012;
 			
 			// aapt resource value: 0x7F080125
-			public const int time = 2131231013;
+			public const int title = 2131231013;
 			
 			// aapt resource value: 0x7F080126
-			public const int title = 2131231014;
+			public const int titleDividerNoCustom = 2131231014;
 			
 			// aapt resource value: 0x7F080127
-			public const int titleDividerNoCustom = 2131231015;
+			public const int title_template = 2131231015;
 			
 			// aapt resource value: 0x7F080128
-			public const int title_template = 2131231016;
+			public const int toolbar = 2131231016;
 			
 			// aapt resource value: 0x7F080129
-			public const int toolbar = 2131231017;
+			public const int top = 2131231017;
 			
 			// aapt resource value: 0x7F08012A
-			public const int top = 2131231018;
-			
-			// aapt resource value: 0x7F08012B
-			public const int topPanel = 2131231019;
+			public const int topPanel = 2131231018;
 			
 			// aapt resource value: 0x7F080008
 			public const int TOP_END = 2131230728;
@@ -22311,68 +22323,62 @@ namespace Demo.Droid
 			// aapt resource value: 0x7F080009
 			public const int TOP_START = 2131230729;
 			
+			// aapt resource value: 0x7F08012B
+			public const int touch_outside = 2131231019;
+			
 			// aapt resource value: 0x7F08012C
-			public const int touch_outside = 2131231020;
+			public const int transition_current_scene = 2131231020;
 			
 			// aapt resource value: 0x7F08012D
-			public const int transition_current_scene = 2131231021;
+			public const int transition_layout_save = 2131231021;
 			
 			// aapt resource value: 0x7F08012E
-			public const int transition_layout_save = 2131231022;
+			public const int transition_position = 2131231022;
 			
 			// aapt resource value: 0x7F08012F
-			public const int transition_position = 2131231023;
+			public const int transition_scene_layoutid_cache = 2131231023;
 			
 			// aapt resource value: 0x7F080130
-			public const int transition_scene_layoutid_cache = 2131231024;
+			public const int transition_transform = 2131231024;
 			
 			// aapt resource value: 0x7F080131
-			public const int transition_transform = 2131231025;
+			public const int @unchecked = 2131231025;
 			
 			// aapt resource value: 0x7F080132
-			public const int @unchecked = 2131231026;
+			public const int uniform = 2131231026;
 			
 			// aapt resource value: 0x7F080133
-			public const int uniform = 2131231027;
+			public const int unlabeled = 2131231027;
 			
 			// aapt resource value: 0x7F080134
-			public const int unlabeled = 2131231028;
+			public const int up = 2131231028;
 			
 			// aapt resource value: 0x7F080135
-			public const int up = 2131231029;
+			public const int useLogo = 2131231029;
 			
 			// aapt resource value: 0x7F080136
-			public const int useLogo = 2131231030;
+			public const int view_offset_helper = 2131231030;
 			
 			// aapt resource value: 0x7F080137
-			public const int view_offset_helper = 2131231031;
+			public const int view_tree_saved_state_registry_owner = 2131231031;
 			
 			// aapt resource value: 0x7F080138
-			public const int view_tree_lifecycle_owner = 2131231032;
+			public const int visible = 2131231032;
 			
 			// aapt resource value: 0x7F080139
-			public const int view_tree_saved_state_registry_owner = 2131231033;
-			
-			// aapt resource value: 0x7F08013A
-			public const int view_tree_view_model_store_owner = 2131231034;
+			public const int visible_removing_fragment_view_tag = 2131231033;
 			
 			// aapt resource value: 0x7F08013B
-			public const int visible = 2131231035;
+			public const int withinBounds = 2131231035;
+			
+			// aapt resource value: 0x7F08013A
+			public const int withText = 2131231034;
 			
 			// aapt resource value: 0x7F08013C
-			public const int visible_removing_fragment_view_tag = 2131231036;
-			
-			// aapt resource value: 0x7F08013E
-			public const int withinBounds = 2131231038;
+			public const int wrap_content = 2131231036;
 			
 			// aapt resource value: 0x7F08013D
-			public const int withText = 2131231037;
-			
-			// aapt resource value: 0x7F08013F
-			public const int wrap_content = 2131231039;
-			
-			// aapt resource value: 0x7F080140
-			public const int zero_corner_chip = 2131231040;
+			public const int zero_corner_chip = 2131231037;
 			
 			static Id()
 			{

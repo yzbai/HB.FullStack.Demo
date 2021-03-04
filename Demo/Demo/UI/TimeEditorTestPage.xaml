@@ -2,8 +2,7 @@
 <ContentPage
     x:Class="Demo.UI.TimeEditorTestPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:timeEditor="clr-namespace:HB.FullStack.XamarinForms.Controls.TimeEditor;assembly=HB.FullStack.XamarinForms">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:baseControls="clr-namespace:HB.FullStack.XamarinForms.Controls;assembly=HB.FullStack.XamarinForms">
     <ContentPage.Resources />
     <ContentPage.Content>
         <StackLayout>
@@ -11,7 +10,7 @@
                 HorizontalOptions="CenterAndExpand"
                 Text="Welcome to Xamarin.Forms!" />
 
-            <timeEditor:TimeEditor
+            <baseControls:TimeEditor
                 IsDisplay24HourFormat="{Binding IsDisplay24HourFormat}"
                 Time="{Binding Time, Mode=TwoWay}" />
 
