@@ -18,15 +18,13 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AvatarPage : BaseContentPage
     {
-        private const long USER_ID = 123456789;
-
         private ImageSource? _avatarSource;
-
-        private readonly IFileHelper _fileHelper = DependencyService.Resolve<IFileHelper>();
 
         public ImageSource? AvatarSource { get => _avatarSource; set { _avatarSource = value; OnPropertyChanged(nameof(AvatarSource)); } }
 
         public ICommand PickAvatarCommand { get; }
+
+        private string? _croppedFullPath;
 
         public AvatarPage()
         {
@@ -35,6 +33,8 @@ namespace Demo.UI
             PickAvatarCommand = new AsyncCommand(PickAvatarAsync);
 
             BindingContext = this;
+
+            _croppedFullPath = 
         }
 
         protected override IList<IBaseContentView?>? GetAllCustomerControls() => null;

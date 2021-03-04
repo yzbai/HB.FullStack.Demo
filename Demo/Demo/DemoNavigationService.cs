@@ -22,9 +22,9 @@ namespace Demo
             
         }
 
-        public override Type? ResumeRouting()
+        public override void ResumeRouting()
         {
-            return null;
+             
         }
     }
 }

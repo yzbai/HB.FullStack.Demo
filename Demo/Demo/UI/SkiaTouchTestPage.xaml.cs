@@ -220,7 +220,7 @@ namespace Demo.UI
             newResultDrawData = new RectangleDrawData { Rect = Matrix.MapRect(initDrawData.Rect), Color = initDrawData.Color, Id = initDrawData.Id, State = initDrawData.State };
         }
 
-        private void OnOneFingerDragged(object sender, SKFigureTouchInfo e)
+        private void OnOneFingerDragged(object sender, SKFigureTouchEventArgs e)
         {
             SKMatrix transMatrix = SKMatrix.CreateTranslation(e.CurrentPoint.X - e.PreviousPoint.X, e.CurrentPoint.Y - e.PreviousPoint.Y);
 
@@ -294,7 +294,7 @@ namespace Demo.UI
             InvalidateMatrixAndSurface();
         }
 
-        private void RectangleFigure_OneFingerDragged(object sender, SKFigureTouchInfo e)
+        private void RectangleFigure_OneFingerDragged(object sender, SKFigureTouchEventArgs e)
         {
             SKMatrix transMatrix = SKMatrix.CreateTranslation(e.CurrentPoint.X - e.PreviousPoint.X, e.CurrentPoint.Y - e.PreviousPoint.Y);
 

@@ -13,6 +13,7 @@ using SkiaSharp.Views.Forms;
 using Svg;
 using Svg.Skia;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,16 +22,11 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SvgTestPage : ContentPage
     {
-        private IFileHelper _fileHelper;
         private SKSvg? _svg;
 
         public SvgTestPage()
         {
             InitializeComponent();
-
-            _fileHelper = DependencyService.Resolve<IFileHelper>();
-
-
         }
 
         private void SKCanvasView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)
@@ -49,7 +45,7 @@ namespace Demo.UI
         {
             _svg?.Dispose();
 
-            using Stream stream = _fileHelper.GetAssetStream("Test.svg");
+            using Stream stream = await FileSystem.OpenAppPackageFileAsync("Test.svg").ConfigureAwait(false);
 
             _svg = new SKSvg();
             _svg.Load(stream);
