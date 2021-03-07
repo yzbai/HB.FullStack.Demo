@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Aliyun.OSS;
 
 using HB.FullStack.XamarinForms;
+using HB.FullStack.XamarinForms.Files;
 using HB.FullStack.XamarinForms.Platforms;
 
 using Xamarin.Essentials;
@@ -37,14 +38,14 @@ namespace Demo.UI
                 //下载
                 //IEnumerable<Bucket> buckets = _ossClient.ListBuckets();
             }
-            catch(HttpRequestException ex)
+            catch (HttpRequestException ex)
             {
                 //403权限不足
             }
 
             using OssObject obj = _ossClient.GetObject(bucketName: "dev-ahabit", key: "Test.zip");
 
-            string? fullPath = await LocalFileHelper.SaveFileAsync(obj.Content, obj.Key, TestFileCategory.Test).ConfigureAwait(false);
+            string? fullPath = await LocalFileServiceHelper.SaveFileAsync(obj.Content, Path.Combine(FileSystem.AppDataDirectory, "Test"), obj.Key).ConfigureAwait(false);
 
         }
 
@@ -53,7 +54,7 @@ namespace Demo.UI
             //上传
             using Stream stream = await FileSystem.OpenAppPackageFileAsync("Test.zip").ConfigureAwait(false);
 
-            string? fullPath = await LocalFileHelper.SaveFileAsync(stream, "Test.zip", TestFileCategory.Test).ConfigureAwait(false);
+            string? fullPath = await LocalFileServiceHelper.SaveFileAsync(stream, Path.Combine(FileSystem.AppDataDirectory, "Test"), "Test.zip").ConfigureAwait(false);
 
 
             using PutObjectResult result = _ossClient.PutObject(bucketName: "dev-ahabit", key: "Test.zip", fileToUpload: fullPath);
@@ -64,10 +65,5 @@ namespace Demo.UI
         }
 
 
-    }
-
-    public enum TestFileCategory
-    {
-        Test
     }
 }

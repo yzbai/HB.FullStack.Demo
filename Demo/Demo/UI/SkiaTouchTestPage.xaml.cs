@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
 
+using HB.FullStack.Common;
 using HB.FullStack.XamarinForms;
 using HB.FullStack.XamarinForms.Base;
 using HB.FullStack.XamarinForms.Skia;
@@ -228,7 +229,7 @@ namespace Demo.UI
         }
     }
 
-    public class RectangleDrawData : SKFigureDrawData
+    public class RectangleDrawData : FigureDrawData
     {
         public long Id { get; set; }
 
@@ -236,7 +237,7 @@ namespace Demo.UI
 
         public SKColor Color { get; set; }
 
-        protected override bool EqualsImpl(SKFigureDrawData other)
+        protected override bool EqualsImpl(FigureDrawData other)
         {
             if (other is RectangleDrawData data)
             {

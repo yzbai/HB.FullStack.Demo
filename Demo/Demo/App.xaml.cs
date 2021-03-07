@@ -32,6 +32,8 @@ namespace Demo
             set { _mainShell = value; }
         }
 
+        public override string InitAssetFileName { get; set; } = null;
+
         public App(IServiceCollection services)
         {
             InitializeServices(services);

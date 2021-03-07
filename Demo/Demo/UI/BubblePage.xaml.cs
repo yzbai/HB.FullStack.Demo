@@ -88,12 +88,12 @@ namespace Demo.UI
                     new Label{Text = "背诵唐诗宋词" }.Row(1).Column(0).ColumnSpan(4),
                     new Label{Text="进度：第2章"}.Row(2).Column(0).ColumnSpan(4),
                     new ImageButton{
-                        Source= new FontImageSource{ FontFamily = Consts.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarEdit },
+                        Source= new FontImageSource{ FontFamily = Conventions.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarEdit },
                         Command = new Command(()=>{ DisplayAlert("ss","xx", "Ok"); })
                     }.Row(3).Column(0),
-                    new ImageButton{Source= new FontImageSource{ FontFamily = Consts.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarClock } }.Row(3).Column(1),
-                    new ImageButton{Source= new FontImageSource{ FontFamily = Consts.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarMultiple } }.Row(3).Column(2),
-                    new ImageButton{Source= new FontImageSource{ FontFamily = Consts.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarQuestion } }.Row(3).Column(3)
+                    new ImageButton{Source= new FontImageSource{ FontFamily = Conventions.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarClock } }.Row(3).Column(1),
+                    new ImageButton{Source= new FontImageSource{ FontFamily = Conventions.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarMultiple } }.Row(3).Column(2),
+                    new ImageButton{Source= new FontImageSource{ FontFamily = Conventions.Material_Icon_Font_Family, Glyph = MaterialFont.CalendarQuestion } }.Row(3).Column(3)
                 }
             };
         }
