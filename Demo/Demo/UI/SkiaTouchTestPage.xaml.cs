@@ -226,6 +226,11 @@ namespace Demo.UI
 
             Matrix = Matrix.PostConcat(transMatrix);
         }
+
+        protected override void OnInitDrawDataChanged()
+        {
+             
+        }
     }
 
     public class RectangleDrawData : FigureDrawData
