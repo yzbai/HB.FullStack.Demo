@@ -207,14 +207,14 @@ namespace Demo.UI
 
         protected override void OnDrawDataChanged()
         {
-            ReCaculateMiddleCache();
+            ReCaculateMiddleDrawCache();
         }
 
         protected override void OnDraw(SKImageInfo info, SKCanvas canvas, RectangleDrawData initDrawData, FigureState state)
         {
             if (CanvasSizeChanged)
             {
-                ReCaculateMiddleCache();
+                ReCaculateMiddleDrawCache();
             }
 
             using SKPaint paint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 5, Color = initDrawData.Color };
@@ -238,7 +238,7 @@ namespace Demo.UI
         /// <summary>
         /// 位置，大小，Matrix，形态等，不包含数据
         /// </summary>
-        private void ReCaculateMiddleCache()
+        private void ReCaculateMiddleDrawCache()
         {
             //这里放一些计算出来的位置，matrix等，只有在InitData和CanvasSize变化时变化，
             //其他情况不变，节省算力
