@@ -22,6 +22,7 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SkiaTouchTestPage : BaseContentPage
     {
+        //单个
         private RectangleFigure? _newRectangelFigure;
 
         private RectangleDrawData? _initData, _resultData;
@@ -30,6 +31,7 @@ namespace Demo.UI
         public RectangleDrawData? ResultDrawData { get => _resultData; set { _resultData = value; OnPropertyChanged(); } }
 
 
+        //Group
         private RectangleCollectionFigure? _rectangleCollectionFigure;
 
         private ObservableRangeCollection<RectangleDrawData>? _initDrawDatas;
@@ -51,8 +53,6 @@ namespace Demo.UI
                 OnPropertyChanged();
 
                 CheckOnIfSignalNewSelectedIds();
-
-                
 
                 if (_resultDrawDatas is ObservableCollection<RectangleDrawData> newCollection)
                 {
@@ -106,7 +106,6 @@ namespace Demo.UI
 
         private void OnResultDrawDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-
             CheckOnIfSignalNewSelectedIds();
         }
 
