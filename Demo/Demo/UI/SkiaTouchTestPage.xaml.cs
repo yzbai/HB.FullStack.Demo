@@ -22,41 +22,45 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SkiaTouchTestPage : BaseContentPage
     {
-        //单个
+        #region 单个
+
         private RectangleFigure? _newRectangelFigure;
 
-        private RectangleDrawData? _initData, _resultData;
+        private RectangleDrawData? _drawData;
+        private RectangleResultData? _resultData;
 
-        public RectangleDrawData? InitDrawData { get => _initData; set { _initData = value; OnPropertyChanged(); } }
-        public RectangleDrawData? ResultDrawData { get => _resultData; set { _resultData = value; OnPropertyChanged(); } }
+        public RectangleDrawData? DrawData { get => _drawData; set { _drawData = value; OnPropertyChanged(); } }
+        public RectangleResultData? ResultData { get => _resultData; set { _resultData = value; OnPropertyChanged(); } }
 
+        #endregion
 
-        //Group
+        #region Group
+
         private RectangleCollectionFigure? _rectangleCollectionFigure;
 
-        private ObservableRangeCollection<RectangleDrawData>? _initDrawDatas;
-        private IList<RectangleDrawData?>? _resultDrawDatas;
+        private ObservableRangeCollection<RectangleDrawData>? _drawDatas;
+        private IList<RectangleResultData?>? _resultDatas;
 
-        public ObservableRangeCollection<RectangleDrawData>? InitDrawDatas { get => _initDrawDatas; set { _initDrawDatas = value; OnPropertyChanged(); } }
+        public ObservableRangeCollection<RectangleDrawData>? DrawDatas { get => _drawDatas; set { _drawDatas = value; OnPropertyChanged(); } }
 
-        public IList<RectangleDrawData?>? ResultDrawDatas
+        public IList<RectangleResultData?>? ResultDatas
         {
-            get => _resultDrawDatas;
+            get => _resultDatas;
             set
             {
-                if (_resultDrawDatas is ObservableCollection<RectangleDrawData> oldCollection)
+                if (_resultDatas is ObservableCollection<RectangleResultData> oldCollection)
                 {
-                    oldCollection.CollectionChanged -= OnResultDrawDatasCollectionChanged;
+                    oldCollection.CollectionChanged -= OnResultDatasCollectionChanged;
                 }
-                _resultDrawDatas = value;
+                _resultDatas = value;
 
                 OnPropertyChanged();
 
                 CheckOnIfSignalNewSelectedIds();
 
-                if (_resultDrawDatas is ObservableCollection<RectangleDrawData> newCollection)
+                if (_resultDatas is ObservableCollection<RectangleResultData> newCollection)
                 {
-                    newCollection.CollectionChanged += OnResultDrawDatasCollectionChanged;
+                    newCollection.CollectionChanged += OnResultDatasCollectionChanged;
                 }
             }
         }
@@ -72,12 +76,12 @@ namespace Demo.UI
         {
             get
             {
-                if (ResultDrawDatas == null)
+                if (ResultDatas == null)
                 {
                     return null;
                 }
 
-                var step1 = ResultDrawDatas.Where(d => d != null && d.State == FigureState.Selected).ToList();
+                var step1 = ResultDatas.Where(d => d != null && d.State == FigureState.Selected).ToList();
                 var step2 = step1.Select(d => d.Id).ToList();
                 var step3 = step2.ToJoinedString(" # ");
 
@@ -89,14 +93,14 @@ namespace Demo.UI
         {
             get
             {
-                if (ResultDrawDatas == null)
+                if (ResultDatas == null)
                 {
                     return null;
                 }
 
                 BaseApplication.LogDebug("输出长按选择Ids");
 
-                var step1 = ResultDrawDatas.Where(d => d != null && d.State == FigureState.LongSelected).ToList();
+                var step1 = ResultDatas.Where(d => d != null && d.State == FigureState.LongSelected).ToList();
                 var step2 = step1.Select(d => d.Id).ToList();
                 var step3 = step2.ToJoinedString(" # ");
 
@@ -104,10 +108,12 @@ namespace Demo.UI
             }
         }
 
-        private void OnResultDrawDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void OnResultDatasCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             CheckOnIfSignalNewSelectedIds();
         }
+
+        #endregion
 
         public ICommand RandomCommand { get; set; }
 
@@ -115,7 +121,7 @@ namespace Demo.UI
         {
             RandomCommand = new Command(() =>
             {
-                InitDrawData = new RectangleDrawData { Id = 101, Rect = GetRandomRect(), Color = ColorUtil.RandomColor().Color.ToSKColor() };
+                DrawData = new RectangleDrawData { Id = 101, Rect = GetRandomRect(), Color = ColorUtil.RandomColor().Color.ToSKColor() };
 
                 var initDrawDatas = new List<RectangleDrawData>();
 
@@ -124,7 +130,7 @@ namespace Demo.UI
                     initDrawDatas.Add(new RectangleDrawData { Id = 101 + i, Rect = GetRandomRect(), Color = ColorUtil.RandomColor().Color.ToSKColor() });
                 }
 
-                InitDrawDatas = new ObservableRangeCollection<RectangleDrawData>(initDrawDatas);
+                DrawDatas = new ObservableRangeCollection<RectangleDrawData>(initDrawDatas);
 
             });
 
@@ -139,13 +145,13 @@ namespace Demo.UI
             base.OnAppearing();
 
             _newRectangelFigure = new RectangleFigure();
-            _newRectangelFigure.SetBinding(RectangleFigure.InitDrawDataProperty, new Binding(nameof(InitDrawData), source: this));
-            _newRectangelFigure.SetBinding(RectangleFigure.ResultDrawDataProperty, new Binding(nameof(ResultDrawData), source: this));
+            _newRectangelFigure.SetBinding(RectangleFigure.DrawDataProperty, new Binding(nameof(DrawData), source: this));
+            _newRectangelFigure.SetBinding(RectangleFigure.ResultDataProperty, new Binding(nameof(ResultData), source: this));
             FigureCanvasView.Figures.Add(_newRectangelFigure);
 
             _rectangleCollectionFigure = new RectangleCollectionFigure();
-            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.InitDrawDatasProperty, new Binding(nameof(InitDrawDatas), source: this));
-            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.ResultDrawDatasProperty, new Binding(nameof(ResultDrawDatas), source: this));
+            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.DrawDatasProperty, new Binding(nameof(DrawDatas), source: this));
+            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.ResultDatasProperty, new Binding(nameof(ResultDatas), source: this));
             FigureCanvasView.Figures.Add(_rectangleCollectionFigure);
         }
 
@@ -172,7 +178,7 @@ namespace Demo.UI
         }
     }
 
-    public class RectangleCollectionFigure : SKFigureGroup<RectangleFigure, RectangleDrawData>
+    public class RectangleCollectionFigure : SKFigureGroup<RectangleFigure, RectangleDrawData, RectangleResultData>
     {
         public RectangleCollectionFigure()
         {
@@ -180,17 +186,37 @@ namespace Demo.UI
             EnableMultipleSelected = true;
             EnableMultipleLongSelected = true;
         }
+
+        protected override void OnDrawDatasChanged()
+        {
+             
+        }
+
+        protected override void OnDrawDatasCollectionChanged()
+        {
+             
+        }
     }
 
-    public class RectangleFigure : SKFigure<RectangleDrawData>
+    public class RectangleFigure : SKFigure<RectangleDrawData, RectangleResultData>
     {
         public RectangleFigure()
         {
             OneFingerDragged += OnOneFingerDragged;
         }
 
+        protected override void OnDrawDataChanged()
+        {
+            ReCaculateMiddleCache();
+        }
+
         protected override void OnDraw(SKImageInfo info, SKCanvas canvas, RectangleDrawData initDrawData, FigureState state)
         {
+            if (CanvasSizeChanged)
+            {
+                ReCaculateMiddleCache();
+            }
+
             using SKPaint paint = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 5, Color = initDrawData.Color };
 
             if (state == FigureState.Selected)
@@ -209,15 +235,32 @@ namespace Demo.UI
             canvas.DrawRect(initDrawData.Rect, paint);
         }
 
+        /// <summary>
+        /// 位置，大小，Matrix，形态等，不包含数据
+        /// </summary>
+        private void ReCaculateMiddleCache()
+        {
+            //这里放一些计算出来的位置，matrix等，只有在InitData和CanvasSize变化时变化，
+            //其他情况不变，节省算力
+
+            /*
+
+             有两大变量：
+
+            InitDrawDataChanged 和 CanvasSizeChanged, 这两者一个在OnInitDrawDataChanged中，一个在Draw中判断，要把所有的数据计算缓存重新计算一边
+
+             */
+        }
+
         protected override void OnUpdateHitTestPath(SKImageInfo info, RectangleDrawData initDrawData)
         {
             //HitTestPath.Reset();
             HitTestPath.AddRect(initDrawData.Rect);
         }
 
-        protected override void OnCaculateOutput(out RectangleDrawData? newResultDrawData, RectangleDrawData initDrawData)
+        protected override void OnCaculateOutput(out RectangleResultData? newResultDrawData, RectangleDrawData initDrawData)
         {
-            newResultDrawData = new RectangleDrawData { Rect = Matrix.MapRect(initDrawData.Rect), Color = initDrawData.Color, Id = initDrawData.Id, State = initDrawData.State };
+            newResultDrawData = new RectangleResultData { Rect = Matrix.MapRect(initDrawData.Rect), Id = initDrawData.Id, State = initDrawData.State };
         }
 
         private void OnOneFingerDragged(object sender, SKFigureTouchEventArgs e)
@@ -226,14 +269,9 @@ namespace Demo.UI
 
             Matrix = Matrix.PostConcat(transMatrix);
         }
-
-        protected override void OnInitDrawDataChanged()
-        {
-             
-        }
     }
 
-    public class RectangleDrawData : FigureDrawData
+    public class RectangleDrawData : FigureData
     {
         public long Id { get; set; }
 
@@ -241,7 +279,7 @@ namespace Demo.UI
 
         public SKColor Color { get; set; }
 
-        protected override bool EqualsImpl(FigureDrawData other)
+        protected override bool EqualsImpl(FigureData other)
         {
             if (other is RectangleDrawData data)
             {
@@ -264,90 +302,31 @@ namespace Demo.UI
         }
     }
 
-    public class OldRectangleFigure : SKFigure
+    public class RectangleResultData : FigureData
     {
-        public static BindableProperty InitDrawDataProperty = BindableProperty.Create(
-                    nameof(InitDrawData),
-                    typeof(RectangleDrawData),
-                    typeof(OldRectangleFigure),
-                    null,
-                    BindingMode.OneWay,
-                    propertyChanged: (b, oldValue, newValue) => ((OldRectangleFigure)b).OnInitDrawDataChanged((RectangleDrawData)oldValue, (RectangleDrawData)newValue));
+        public long Id { get; set; }
 
-        public static BindableProperty ResultDrawDataProperty = BindableProperty.Create(
-                    nameof(ResultDrawData),
-                    typeof(RectangleDrawData),
-                    typeof(OldRectangleFigure),
-                    null,
-                    BindingMode.OneWayToSource);
+        public SKRect Rect { get; set; }
 
-        public RectangleDrawData? InitDrawData { get => (RectangleDrawData?)GetValue(InitDrawDataProperty); set => SetValue(InitDrawDataProperty, value); }
-
-        public RectangleDrawData? ResultDrawData { get => (RectangleDrawData?)GetValue(ResultDrawDataProperty); set => SetValue(ResultDrawDataProperty, value); }
-
-        private bool _hitPathNeedUpdate = false;
-
-        public OldRectangleFigure()
+        protected override bool EqualsImpl(FigureData other)
         {
-            OneFingerDragged += RectangleFigure_OneFingerDragged;
-        }
-
-        private void OnInitDrawDataChanged(RectangleDrawData oldValue, RectangleDrawData newValue)
-        {
-            _hitPathNeedUpdate = true;
-
-            InvalidateMatrixAndSurface();
-        }
-
-        private void RectangleFigure_OneFingerDragged(object sender, SKFigureTouchEventArgs e)
-        {
-            SKMatrix transMatrix = SKMatrix.CreateTranslation(e.CurrentPoint.X - e.PreviousPoint.X, e.CurrentPoint.Y - e.PreviousPoint.Y);
-
-            Matrix = Matrix.PostConcat(transMatrix);
-        }
-
-        protected override void OnDraw(SKImageInfo info, SKCanvas canvas)
-        {
-            if (InitDrawData == null)
+            if (other is RectangleDrawData data)
             {
-                return;
+
+                return Id == data.Id && Rect == data.Rect;
             }
 
-            using SKPaint paint = new SKPaint { Style = SKPaintStyle.Fill, Color = InitDrawData.Color };
-
-            canvas.DrawRect(InitDrawData.Rect, paint);
+            return false;
         }
 
-        protected override void OnUpdateHitTestPath(SKImageInfo info)
+        protected override HashCode GetHashCodeImpl()
         {
-            if (InitDrawData == null)
-            {
-                return;
-            }
+            HashCode hashCode = new HashCode();
 
-            if (CanvasSizeChanged || _hitPathNeedUpdate)
-            {
-                _hitPathNeedUpdate = false;
+            hashCode.Add(Id);
+            hashCode.Add(Rect);
 
-                HitTestPath = new SKPath();
-                HitTestPath.AddRect(InitDrawData.Rect);
-            }
-        }
-
-        protected override void OnCaculateOutput()
-        {
-            if (InitDrawData == null)
-            {
-                return;
-            }
-
-            //这样没用，因为DrawData的值（地址）并没有变，只是他成员的值变了，OnPropertyChanged时，会因为引用值相同而不通知
-            //ResultDrawData.Rect = Matrix.MapRect(_currentDrawData.Rect);
-            //OnPropertyChanged(nameof(DrawData));
-
-            ResultDrawData = new RectangleDrawData { Rect = Matrix.MapRect(InitDrawData.Rect), Color = InitDrawData.Color };
+            return hashCode;
         }
     }
-
-
 }
