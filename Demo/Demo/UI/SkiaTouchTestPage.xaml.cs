@@ -186,16 +186,6 @@ namespace Demo.UI
             EnableMultipleSelected = true;
             EnableMultipleLongSelected = true;
         }
-
-        protected override void OnDrawDatasChanged()
-        {
-             
-        }
-
-        protected override void OnDrawDatasCollectionChanged()
-        {
-             
-        }
     }
 
     public class RectangleFigure : SKFigure<RectangleDrawData, RectangleResultData>
