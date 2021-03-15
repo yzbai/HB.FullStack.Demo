@@ -95,6 +95,15 @@
     -->
 
     <FlyoutItem
+        Title="SnailPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:SnailPage}"
+            Route="SnailPage" />
+    </FlyoutItem>
+
+
+    <FlyoutItem
         Title="ZipTestPage"
         Icon="icon_about.png">
         <ShellContent

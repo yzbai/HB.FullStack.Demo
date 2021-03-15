@@ -145,12 +145,12 @@ namespace Demo.UI
             base.OnAppearing();
 
             _newRectangelFigure = new RectangleFigure();
-            _newRectangelFigure.SetBinding(RectangleFigure.DrawDataProperty, new Binding(nameof(DrawData), source: this));
+            _newRectangelFigure.SetBinding(RectangleFigure.DrawInfoProperty, new Binding(nameof(DrawData), source: this));
             _newRectangelFigure.SetBinding(RectangleFigure.ResultDataProperty, new Binding(nameof(ResultData), source: this));
             FigureCanvasView.Figures.Add(_newRectangelFigure);
 
             _rectangleCollectionFigure = new RectangleCollectionFigure();
-            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.DrawDatasProperty, new Binding(nameof(DrawDatas), source: this));
+            _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.DrawInfoProperty, new Binding(nameof(DrawDatas), source: this));
             _rectangleCollectionFigure.SetBinding(RectangleCollectionFigure.ResultDatasProperty, new Binding(nameof(ResultDatas), source: this));
             FigureCanvasView.Figures.Add(_rectangleCollectionFigure);
         }
@@ -258,6 +258,11 @@ namespace Demo.UI
             SKMatrix transMatrix = SKMatrix.CreateTranslation(e.CurrentPoint.X - e.PreviousPoint.X, e.CurrentPoint.Y - e.PreviousPoint.Y);
 
             Matrix = Matrix.PostConcat(transMatrix);
+        }
+
+        protected override void OnInitDataChanged()
+        {
+            
         }
     }
 
