@@ -95,6 +95,14 @@
     -->
 
     <FlyoutItem
+        Title="DoubledexPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:DoubledexPage}"
+            Route="DoubledexPage" />
+    </FlyoutItem>
+
+    <FlyoutItem
         Title="SnailPage"
         Icon="icon_about.png">
         <ShellContent
