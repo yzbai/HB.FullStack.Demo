@@ -11,6 +11,7 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 PaintSurface="CanvasView_PaintSurface" />
+            <Label Text="xxxx" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

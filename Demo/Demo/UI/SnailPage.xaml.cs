@@ -25,7 +25,7 @@ namespace Demo.UI
         private const int DISPLAY_HOURS = 26;
         private const int INIT_RADIUS = 50;
 
-        private const int NUMBER_MARK_RADIUS = 30;
+        private const int HOUR_MARK_CIRCLE_RADIUS = 30; //小时标记的小圆圈
 
         //Consts
         private const float RADIANS_ONE_DEGREE = (float)(Math.PI / 180);
@@ -38,7 +38,6 @@ namespace Demo.UI
         private const float TWO_PI = (float)(2 * Math.PI);
 
         private const int DEGREES_ONE_HOUR = 30;
-        private const float MARK_LENGTH_RATIO = 0.2f;
 
         //Draw Middle Data
         private float _maxRadius;
@@ -50,8 +49,6 @@ namespace Demo.UI
         private float _oneDegreeRadiusIncr;
         private float _oneRadianRadiusIncr;
 
-        //小刻度的长度
-        private float _markLength;
 
         public SnailPage()
         {
@@ -112,7 +109,6 @@ namespace Demo.UI
                 //两根螺旋线间的距离
                 _radiusGap = (GetRadiusByRadian(_roudCount * TWO_PI) - _initRadius) / _roudCount;
 
-                _markLength = _radiusGap * MARK_LENGTH_RATIO;
 
                 _first = false;
             }
@@ -199,15 +195,15 @@ namespace Demo.UI
                 PathEffect = SKPathEffect.CreateDash(new float[] { 30, 30 }, 0)
             };
 
-            using SKPaint numberPaint = new SKPaint
+            using SKPaint hourTextPaint = new SKPaint
             {
                 Color = SKColors.White,
             };
 
-            float originalTextWidth = numberPaint.MeasureText("8");
-            float textWithSizeRatio = originalTextWidth / numberPaint.TextSize;
-            numberPaint.TextSize = NUMBER_MARK_RADIUS * 2 / MathF.Sqrt(2);
-            float oneDigitalWidth = numberPaint.TextSize * textWithSizeRatio;
+            float originalTextWidth = hourTextPaint.MeasureText("8");
+            float textWithSizeRatio = originalTextWidth / hourTextPaint.TextSize;
+            hourTextPaint.TextSize = HOUR_MARK_CIRCLE_RADIUS * 2 / MathF.Sqrt(2);
+            float oneDigitalWidth = hourTextPaint.TextSize * textWithSizeRatio;
 
             //TODO: 可以只在有变动时生成
             using SKPath spiralPath = new SKPath();
@@ -282,13 +278,13 @@ namespace Demo.UI
                     if (degree % 30 == 0)
                     {
 
-                        canvas.DrawCircle(outterX, outterY, NUMBER_MARK_RADIUS, littleCirclePatin);
+                        canvas.DrawCircle(outterX, outterY, HOUR_MARK_CIRCLE_RADIUS, littleCirclePatin);
 
                         string text = (hourNumber % 24).ToString();
 
                         float textWidth = text.Length * oneDigitalWidth;
 
-                        canvas.DrawText(hourNumber.ToString(), outterX - textWidth / 2f, outterY + numberPaint.TextSize / 2f, numberPaint);
+                        canvas.DrawText(hourNumber.ToString(), outterX - textWidth / 2f, outterY + hourTextPaint.TextSize / 2f, hourTextPaint);
 
                         hourNumber++;
                     }
