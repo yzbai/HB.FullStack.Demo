@@ -178,14 +178,25 @@ namespace Demo.UI
         }
     }
 
+    public class RectangleFigureFactory : IFigureFactory
+    {
+        public object Create<TFigure>()
+        {
+            return new RectangleFigure();
+        }
+    }
+
     public class RectangleCollectionFigure : SKFigureGroup<RectangleFigure, RectangleDrawData, RectangleResultData>
     {
-        public RectangleCollectionFigure()
+
+
+        public RectangleCollectionFigure() : base(new RectangleFigureFactory())
         {
             EnableLongTap = true;
             EnableMultipleSelected = true;
             EnableMultipleLongSelected = true;
         }
+
     }
 
     public class RectangleFigure : SKFigure<RectangleDrawData, RectangleResultData>
