@@ -19,16 +19,16 @@ namespace Demo.UI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DoubledexPage : ContentPage
     {
-
-        private const int DISPLAY_HOURS = 26;
+        //外部传入参数
+        private const int MAX_HOURS_DISPLAYED = 1 * 24 + 2;
         private const int HOURS_ONE_ROUND = 12;
-
         private const float MAX_RADIUS_RATIO = 0.9f;
-        private const float INIT_RADIUS = 100f;
+        private const float INIT_RADIUS_BY_MAX_RADIUS_RATIO = 0.0f;
+        private const float HOUR_MARK_CIRCLE_RADIUS_BY_MAX_RADIUS_RATIO = 0.05f; //小时标记的小圆圈
+        private const float EXTRA_HOUR_GAP_BY_RADIUS_GAP_RATIO = 0.5f;
 
-        private const int HOUR_MARK_CIRCLE_RADIUS = 30; //小时标记的小圆圈
+        //根据设计，计算得到
 
-        private const float SHRINK_EXTRA_HOUR_RADIUS_RATIO = 0.5f;
 
         //COnsts
         private const float RADIANS_ONE_DEGREE = (float)(Math.PI / 180);
@@ -65,10 +65,10 @@ namespace Demo.UI
             {
                 _degrees_one_hour = 360 / HOURS_ONE_ROUND;
 
-                _initRadius = INIT_RADIUS;
                 _maxRadius = Math.Min(info.Width, info.Height) / 2f * MAX_RADIUS_RATIO;
+                _initRadius = INIT_RADIUS_BY_MAX_RADIUS_RATIO * _maxRadius;
 
-                int displayHours = DISPLAY_HOURS;
+                int displayHours = MAX_HOURS_DISPLAYED;
 
                 //转几整圈
                 _fullRoudCount = 1 + (int)Math.Floor((float)displayHours / HOURS_ONE_ROUND);
@@ -189,7 +189,7 @@ namespace Demo.UI
                 return count * _radiusGap + _initRadius;
             }
 
-            return _initRadius + (_fullRoudCount - 1) * _radiusGap + (_shrinkExtraHourRadius ? _radiusGap * SHRINK_EXTRA_HOUR_RADIUS_RATIO : _radiusGap);
+            return _initRadius + (_fullRoudCount - 1) * _radiusGap + (_shrinkExtraHourRadius ? _radiusGap * EXTRA_HOUR_GAP_BY_RADIUS_GAP_RATIO: _radiusGap);
         }
 
         private static float GetTimePercent(Time24Hour time)
@@ -204,9 +204,11 @@ namespace Demo.UI
             using SKPaint hourCirclePaint = new SKPaint { Style = SKPaintStyle.Fill, Color = SKColors.Black };
             using SKPaint hourTextPaint = new SKPaint { Color = SKColors.White };
 
+            float hourMarkCircleRadius = HOUR_MARK_CIRCLE_RADIUS_BY_MAX_RADIUS_RATIO * _maxRadius;
+
             float originalTextWidth = hourTextPaint.MeasureText("4");
             float textWithSizeRatio = originalTextWidth / hourTextPaint.TextSize;
-            hourTextPaint.TextSize = HOUR_MARK_CIRCLE_RADIUS * 2 / MathF.Sqrt(2);
+            hourTextPaint.TextSize = hourMarkCircleRadius * 2 / MathF.Sqrt(2);
             float oneDigitalWidth = hourTextPaint.TextSize * textWithSizeRatio;
 
             //画轮廓线
@@ -246,7 +248,7 @@ namespace Demo.UI
                     canvas.DrawLine(innerX, innerY, x, y, hourLinePaint);
 
                     //circle
-                    canvas.DrawCircle(x, y, HOUR_MARK_CIRCLE_RADIUS, hourCirclePaint);
+                    canvas.DrawCircle(x, y, hourMarkCircleRadius, hourCirclePaint);
 
                     //text
 
@@ -286,7 +288,7 @@ namespace Demo.UI
                 canvas.DrawLine(innerX, innerY, x, y, hourLinePaint);
 
                 //circle
-                canvas.DrawCircle(x, y, HOUR_MARK_CIRCLE_RADIUS, hourCirclePaint);
+                canvas.DrawCircle(x, y, hourMarkCircleRadius, hourCirclePaint);
 
                 //text
 
