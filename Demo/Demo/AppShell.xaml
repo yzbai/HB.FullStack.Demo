@@ -95,6 +95,14 @@
     -->
 
     <FlyoutItem
+        Title="RadioButtonTestPage"
+        Icon="icon_about.png">
+        <ShellContent
+            ContentTemplate="{DataTemplate ui:RadioButtonTestPage}"
+            Route="RadioButtonTestPage" />
+    </FlyoutItem>
+
+    <FlyoutItem
         Title="DoubledexPage"
         Icon="icon_about.png">
         <ShellContent
