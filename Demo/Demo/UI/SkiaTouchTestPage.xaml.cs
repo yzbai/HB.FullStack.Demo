@@ -206,10 +206,11 @@ namespace Demo.UI
             OneFingerDragged += OnOneFingerDragged;
         }
 
-        protected override void OnDrawDataChanged()
+        protected override void OnDrawInfoChanged()
         {
             ReCaculateMiddleDrawCache();
         }
+
 
         protected override void OnDraw(SKImageInfo info, SKCanvas canvas, RectangleDrawData initDrawData, FigureState state)
         {
